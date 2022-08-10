@@ -1,0 +1,146 @@
+
+.main-home-content{
+	background-color: #000;
+	border-bottom: 2px solid #333;
+    border-top: 1px solid #333;
+}
+.home-con-inner, .home-box-inner, 
+.home-box-magic, .one-stop-cont, 
+.main-banner, .main-bottom{
+	margin:0px;
+	padding: 50px 70px;
+}
+.banner-img{
+	height: 500px;
+}
+.banner-headings{
+    margin-top: 80px;
+    width: 320px;
+}
+.banner-headings h1{
+	color: #fff;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+.banner-headings p{
+    color: #ddd;
+    margin: 30px 0px;
+    font-size: 15px;
+}
+.banner-headings input{
+    border-radius: 0px;
+    padding: 12px;
+    color: #000;
+    font-weight: bold;
+}
+.pad-mar-0{
+	margin:0px;
+}
+.home-box{
+	margin:auto;
+	display: table;
+}
+.home-box img{
+	margin:auto;
+	display: table;
+	height: 100px;
+}
+.home-box h4{
+	color: #fff;
+    margin: 17px 0px 3px 0px;
+    font-size: 20px;
+}
+.home-box p{
+	color: #fff;
+    font-size: 14px;
+}
+.home-box-magic .row{
+	padding: 25px 10px;
+    background-color: #ffcc05;
+    border-radius: 10px;
+}
+.home-box-magic .row img{
+	height: 400px;
+}
+.magic-cont{
+	width: 360px;
+	margin-top: 100px;
+}
+.magic-cont h1{
+    color: #000;
+    font-weight: bold;
+    font-size: 40px;
+}
+.magic-cont p{
+	color: #000;
+    font-weight: bold;
+    font-size: 14px;
+}
+.one-stop-cont .row{
+	margin-top: 50px;
+}
+.one-stop-heading{
+    margin: 0px;
+    color: #fff;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+.one-stop-box{
+	margin: auto;
+    display: table;
+    width: 310px;
+}
+.one-stop-box img{
+	margin: auto;
+	display: table;
+	height: 250px;
+}
+.one-stop-box p{
+	margin: 40px 0px;
+    color: #ddd;
+}
+.main-banner img{
+	height: 400px;
+    margin: auto;
+    display: table;
+}
+.stylish-banner{
+	position: relative;
+}
+.style-input{
+	border-radius: 0px;
+    padding: 12px;
+    color: #000;
+    font-weight: bold;
+    width: 300px !important;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.we-love{
+	width: 500px;
+    margin: auto;
+    display: table;
+}
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .banner-img, .home-box-magic .row img, .main-banner img{
+        height: auto;
+        width: 100%;
+    }
+    .banner-headings, .magic-cont{
+        width: 100%;
+    }
+    .home-con-inner, .home-box-inner, 
+    .home-box-magic, .one-stop-cont, 
+    .main-banner{
+        padding: 20px 10px;
+    }
+    .home-box-inner .col-lg-4{
+        margin: 20px 0px;
+    }
+    .style-input{
+        bottom: 0;
+    }
+}

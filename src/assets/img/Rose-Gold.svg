@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 506 506" style="enable-background:new 0 0 506 506;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st1{display:none;}
+	.st2{display:inline;fill-rule:evenodd;clip-rule:evenodd;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}
+	.st4{fill:none;stroke:#E0BFB8;stroke-width:17;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;}
+	.st6{fill-rule:evenodd;clip-rule:evenodd;fill:#DDCDCA;}
+	.st7{display:none;fill:#FFFFFF;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:40;stroke-miterlimit:10;}
+</style>
+<rect x="13.6" y="13.6" class="st0" width="462.1" height="462.1"/>
+<g>
+	<g transform="translate(-538 -320)">
+		<g transform="translate(547 322)">
+			<g class="st1">
+				<polygon id="c" class="st2" points="0,0 476,0 476,476 0,476 				"/>
+			</g>
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1159.5966" y1="144.535" x2="-1158.5968" y2="145.5353" gradientTransform="matrix(476 0 0 476 551968 -68798.75)">
+				<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.2"/>
+				<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			</linearGradient>
+			<polygon class="st3" points="0,0 476,0 476,476 0,476 			"/>
+			<path class="st4" d="M8.5,8.5v459h459V8.5H8.5z"/>
+			<g>
+				<polygon id="b" class="st5" points="0,476 476,476 487,492 11,492 				"/>
+			</g>
+			<g>
+				<polygon id="b_00000025435618197947885730000004296228956496595106_" class="st6" points="0,476 476,476 487,492 11,492 				"/>
+			</g>
+			<g>
+				<polygon id="a" class="st5" points="476,0 487,16 487,492 476,476 				"/>
+			</g>
+			<g>
+				<polygon id="a_00000172409450391910914220000005474749529733931431_" class="st6" points="476,0 487,16 487,492 476,476 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+<rect x="25" y="17.9" class="st7" width="445.5" height="445.5"/>
+<g>
+	
+		<image style="overflow:visible;opacity:0.75;" width="473" height="473" xlink:href="CA5AB704.png"  transform="matrix(1 0 0 1 11 4)">
+	</image>
+	<g>
+		<rect x="46.1" y="39.1" class="st8" width="402.2" height="402.2"/>
+	</g>
+</g>
+</svg>

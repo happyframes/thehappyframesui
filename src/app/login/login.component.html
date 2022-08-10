@@ -1,0 +1,61 @@
+<div class="d-md-flex half">
+	<div class="bg" style="background-image:url(https://preview.colorlib.com/theme/bootstrap/login-form-04/images/xbg_1.jpg.pagespeed.ic.R5QWIA8_nZ.webp)">
+	</div>
+	<div class="contents">
+		<div class="container">
+			<div class="row align-items-center justify-content-center mainlogin-row">
+				<div class="col-md-12">
+					<div class="form-block mx-auto log-bg" *ngIf="!emailCode">
+						<div class="login-logo">
+							<img src="assets/img/Logo.png">
+						</div>
+					</div>
+					<div class="form-block mx-auto" *ngIf="!emailCode">
+						<div class="text-center mb-5 login-happy-frames">
+							<h3>Login to <strong>The Happy Frames</strong></h3>
+						</div>
+						<div class="social-login-btn">
+							<a class="btn btn-primary login-fb">
+								Log in with Facebook
+							</a>
+							<br/>
+							<a class="btn btn-primary login-gmail">
+								Log in with Gmail
+							</a>
+						</div>
+						<p class="login-or"><span>or</span></p>
+						<form>
+							<div class="form-group first">
+								<input type="email" class="form-control email-field" placeholder="Enter your email" id="email">
+							</div>
+							<input type="button" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom" (click)="submitHFLogin()">
+						</form>
+					</div>
+					<div class="form-block mx-auto log-bg" *ngIf="emailCode">
+						<div class="login-logo">
+							<img src="assets/img/Logo.png">
+						</div>
+					</div>
+					<div class="form-block mx-auto" *ngIf='emailCode'>
+						<div class="back-login" (click)="backLogin()">
+							<img src="assets/img/back-yellow.png">
+						</div>
+						<div class="text-center mb-5 login-happy-frames">
+							<h3>Welcome</h3>
+						</div>
+						<div class="social-login-btn text-center">
+							<p>An email with the code has been sent to</p>
+							<p>ra@gmail.com.</p>
+						</div>
+						<form>
+							<div class="form-group first">
+								<input type="text" class="form-control email-field" placeholder="your code" id="urcode">
+							</div>
+							<input type="button" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom" [routerLink]="['/upload-images']">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

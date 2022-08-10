@@ -1,0 +1,305 @@
+<div class="upload-main-cont">
+	<div class="row upload-main">
+		<div class="col-lg-9">
+			<div class="upload-image-inner">
+				<h2>Pick some photos to get started</h2>
+				<div class="upload-box-image">
+				  	<div class="upload-box-image-inner" *ngFor="let uploadImage of uploadImagesList" style="box-shadow: none;" (mouseenter)="mouseEnter('hoverImg'+uploadImage.id)" (mouseleave)="mouseLeave('hoverImg'+uploadImage.id)">
+				  		<img src="assets/img/delete.png" class="delete-icon none hoverImg{{uploadImage.id}}" (click)="deleteImg(uploadImage.id)"/>
+				  		<div class="img-frame" >
+				  			<img src="assets/img/{{frameSelect}}.svg" />
+				  		</div>
+				  		<img src="{{uploadImage.url}}" class="upload-frames-ui" />
+				  	</div>
+				  	<ng-picker-overlay
+						  [apikey]="apikey"
+						  (uploadSuccess)="onUploadSuccess($event)"
+						  (uploadError)="onUploadError($event)">
+					  	<div class="upload-box-image-inner">
+					  		<div class="upload-images-box">
+					  			<div class="upload-camera-icon">
+					  				<img src="assets/img/cam.png">
+					  			</div>
+					  			<div class="upload-content">
+					  				<h4>Upload Photos</h4>
+					  			</div>
+					  			<div style="clear:both"></div>
+					  		</div>
+					  		<div class="upload-images-box">
+					  			<div class="upload-camera-icon">
+					  				<img src="assets/img/fb.png">
+					  			</div>
+					  			<div class="upload-content">
+					  				<h4>Import from Facebook</h4>
+					  			</div>
+					  			<div style="clear:both"></div>
+					  		</div>
+					  		<div class="upload-images-box">
+					  			<div class="upload-camera-icon">
+					  				<img src="assets/img/insta.png">
+					  			</div>
+					  			<div class="upload-content">
+					  				<h4>Import from Instagram</h4>
+					  			</div>
+					  			<div style="clear:both"></div>
+					  		</div>
+					  	</div>
+					</ng-picker-overlay>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3" style="background-color: #fff;">
+			<div class="rt-frame-selection">
+				<div class="frames-list" [ngClass]="{'frames-list-active': frameSelect === 'White'}" (click)="frameList('White')">
+					<div class="frm-img pull-left">
+						<img src="assets/img/White.svg"/>
+					</div>
+					<div class="frm-name pull-left">
+						<h4>White</h4>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<div class="frames-list" (click)="frameList('Black')" [ngClass]="{'frames-list-active': frameSelect === 'Black'}">
+					<div class="frm-img pull-left">
+						<img src="assets/img/Black.svg"/>
+					</div>
+					<div class="frm-name pull-left">
+						<h4>Black</h4>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<div class="frames-list" (click)="frameList('Rose-Gold')" [ngClass]="{'frames-list-active': frameSelect === 'Rose-Gold'}">
+					<div class="frm-img pull-left">
+						<img src="assets/img/Rose-Gold.svg"/>
+					</div>
+					<div class="frm-name pull-left">
+						<h4>Rose Gold</h4>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<div class="frames-list" (click)="frameList('White-Bold')" [ngClass]="{'frames-list-active': frameSelect === 'White-Bold'}">
+					<div class="frm-img pull-left">
+						<img src="assets/img/White-Bold.svg"/>
+					</div>
+					<div class="frm-name pull-left">
+						<h4>White Bold</h4>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<div class="frames-list" (click)="frameList('Black-Bold')" [ngClass]="{'frames-list-active': frameSelect === 'Black-Bold'}">
+					<div class="frm-img pull-left">
+						<img src="assets/img/Black-Bold.svg"/>
+					</div>
+					<div class="frm-name pull-left">
+						<h4>Black Bold</h4>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<div class="frames-list" (click)="frameList('Rose-Gold-Bold')" [ngClass]="{'frames-list-active': frameSelect === 'Rose-Gold-Bold'}">
+					<div class="frm-img pull-left">
+						<img src="assets/img/Rose-Gold-Bold.svg"/>
+					</div>
+					<div class="frm-name pull-left">
+						<h4>Rose Gold Bold</h4>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<input type="button" value="Checkout" class="btn btn-block btn-primary happy-frame-checkout btn-custom" (click)="checkOut()">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="botoom-modal" *ngIf="openLowImage">
+	<div class="botoom-modal-inner">
+		<div class="modal-content-box">
+			<h4 class="low-image text-center">Low Image Quality</h4>
+			<img class="low-img-show" src="{{selectedImg}}">
+			<p class="para-low">This photo is actually pretty small. It will probably make a blurry frame!</p>
+		</div>
+		<div class="modal-footer-box">
+			<div class="footer-modal-main">
+				<div class="keep-anyway" (click)="keepAnyway()">Keep Anyway</div>
+				<div class="remove-order" (click)="removeOrder()">Remove From Order</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="right-modal" *ngIf="openRightModal">
+	<div class="right-modal-inner">
+		<div class="close-right-modal" (click)="closeRightModal()">
+			<p>X</p>
+		</div>
+		<div class="checkout-title">Checkout</div>
+		<div class="add-pay" data-toggle="modal" data-target="#myModal" *ngIf="addressForm.invalid">
+			<div class="pull-left img-add-pay">
+				<img src="assets/img/home-yellow.png">
+			</div>
+			<div class="pull-left head-add-pay">
+				Add Address
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="add-pay" data-toggle="modal" data-target="#myModal" *ngIf="!addressForm.invalid">
+			<div class="pull-left img-add-pay">
+				<img src="assets/img/home-yellow.png">
+			</div>
+			<div class="pull-left head-add-pay">
+				{{ addressForm.value.fullName }}, {{ addressForm.value.address1 }}, {{addressForm.value.city }}
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<hr/>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count">{{ this.uploadImagesList.length }} frames</p>
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count pull-right">US$11</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count">Shipping</p>
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count pull-right">Free</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count font-bold">Total</p>
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count pull-right font-bold">US$11</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<input type="button" value="Place Order" class="btn btn-block btn-primary happy-frame-checkout btn-custom" (click)="plcaeOrder()">
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<form class="form-horizontal" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+		  	<div class="modal-content">
+			    <div class="modal-header">
+			      <button type="button" class="close" data-dismiss="modal">&times;</button>
+			      <h4 class="modal-title text-center">Add Address</h4>
+			    </div>
+			    <div class="modal-body">
+			    	<div class="row">
+			    		<div class="col-lg-12">
+			      			<div class="form-group form-mar">
+							    <label for="fullname">Full Name</label>
+							    <input type="text" class="form-control" formControlName="fullName">
+							    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+							        <div *ngIf="f.fullName.errors.required">Full name is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			    	</div>
+			      	<div class="row">
+			      		<div class="col-lg-6">
+			      			<div class="form-group form-mar">
+							    <label for="email">Email</label>
+							    <input type="email" class="form-control" formControlName="email">
+							    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							        <div *ngIf="f.email.errors.required">Email is required</div>
+							        <div *ngIf="f.email.errors.email">Email is invalid</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      		<div class="col-lg-6">
+			      			<div class="form-group form-mar">
+							    <label for="address2">Phone Number</label>
+							    <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber">
+							    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+							        <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      	</div>
+			      	<div class="row">
+			      		<div class="col-lg-12">
+			      			<div class="form-group form-mar">
+							    <label for="address1">Address 1</label>
+							    <input type="text" class="form-control" placeholder="Street, House Number" formControlName="address1">
+							    <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+							        <div *ngIf="f.address1.errors.required">Address 1 is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      	</div>
+			      	<div class="row">
+			      		<div class="col-lg-12">
+			      			<div class="form-group form-mar">
+							    <label for="address2">Address 2</label>
+							    <input type="text" class="form-control" placeholder="Apt/Suite/Unit (Optional)" formControlName="address2">
+							    <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+							        <div *ngIf="f.address2.errors.required">Address 2 is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      	</div>
+			      	
+			      	<div class="row">
+			      		<div class="col-lg-6">
+			      			<div class="form-group form-mar">
+							    <label for="city">City</label>
+							    <input type="text" class="form-control" formControlName="city">
+							    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+							        <div *ngIf="f.city.errors.required">City is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      		<div class="col-lg-6">
+			      			<div class="form-group form-mar">
+							    <label for="state">State</label>
+							    <input type="text" class="form-control" formControlName="state">
+							    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+							        <div *ngIf="f.state.errors.required">State is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      	</div>
+			      	<div class="row">
+			      		<div class="col-lg-6">
+			      			<div class="form-group form-mar">
+							    <label for="zipcode">Zip Code</label>
+							    <input type="text" class="form-control" formControlName="zipcode" maxLength="6">
+							    <div *ngIf="submitted && f.zipcode.errors" class="invalid-feedback">
+							        <div *ngIf="f.zipcode.errors.required">Zip code is required</div>
+						      	</div>
+						  	</div>
+			      		</div>
+			      		<div class="col-lg-6">
+			      			<div class="form-group form-mar">
+							  <label for="country">Country</label>
+							  <select class="form-control" formControlName="country">
+							    <option>India</option>
+							  </select>
+							  	<div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+							        <div *ngIf="f.country.errors.required">Country is required</div>
+						      	</div>
+							</div>
+			      		</div>
+			      	</div>
+			    </div>
+			    <div class="modal-footer">
+			      <button type="submit" class="btn btn-primary btn-custom" *ngIf="addressForm.invalid">Submit</button>
+			      <button type="button" class="btn btn-primary btn-custom" *ngIf="!addressForm.invalid" data-dismiss="modal">Submit</button>
+			    </div>
+		  	</div>
+	  </form>
+	</div>
+</div>
+<div class="alert alert-info alert-min" *ngIf="minTile">
+    <strong>Minimum 3 frames should be uploaded!</strong>
+</div>
+<div class="alert alert-info alert-min" *ngIf="addAdress">
+    <strong>Please add address!</strong>
+</div>
