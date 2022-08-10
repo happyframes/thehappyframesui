@@ -1,0 +1,35 @@
+<div class="row header-main">
+	<div class="col-lg-2 col-md-2 col-xs-12 header-logo">
+		<a [routerLink]="['/']">
+			<img src="assets/img/Logo.png">
+		</a>
+	</div>
+	<div class="col-lg-8 col-md-8 col-xs-10 header-menu">
+		<div class="header-menu-inside">
+			<div class="header-menu-under">
+				<ul>
+					<li>
+						<a [routerLink]="['/']">Home</a>
+					</li>
+					<li>
+						<a [routerLink]="['/upload-images']">Frame your Photo</a>
+					</li>
+					<li>
+						<a [routerLink]="['/']">FAQ's</a>
+					</li>
+					<li>
+						<a [routerLink]="['/']">Contact Us</a>
+					</li>
+					<div style="clear:both;"></div>
+				</ul>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-2 col-md-2 col-xs-2 header-user">
+		<a [routerLink]="['/login']">
+			<img src="assets/img/user.png">
+		</a>
+		<div style="clear:both;"></div>
+	</div>
+</div>

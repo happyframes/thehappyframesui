@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 506 506" style="enable-background:new 0 0 506 506;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}
+	.st1{display:none;}
+	.st2{display:inline;fill-rule:evenodd;clip-rule:evenodd;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:17;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#858585;}
+	.st6{fill-rule:evenodd;clip-rule:evenodd;fill:#D0D0D0;}
+	.st7{fill:none;stroke:#FFFFFF;stroke-width:40;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#666666;stroke-width:0.25;}
+</style>
+<g>
+	<g transform="translate(-538 -320)">
+		<g transform="translate(547 322)">
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-52.9074" y1="671.537" x2="-51.9077" y2="670.5367" gradientTransform="matrix(476 0 0 -476 25184 319651.5625)">
+				<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.2"/>
+				<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			</linearGradient>
+			<polygon class="st0" points="0,0 476,0 476,476 0,476 			"/>
+			<g class="st1">
+				<polygon id="c" class="st2" points="0,0 476,0 476,476 0,476 				"/>
+			</g>
+			<path class="st3" d="M8.5,8.5v459h459V8.5H8.5z"/>
+			<g>
+				<polygon id="b" class="st4" points="0,476 476,476 487,492 11,492 				"/>
+			</g>
+			<g>
+				<polygon id="b_00000013182487046729384440000014498896138702705814_" class="st5" points="0,476 476,476 487,492 11,492 				"/>
+			</g>
+			<g>
+				<polygon id="a" class="st4" points="476,0 487,16 487,492 476,476 				"/>
+			</g>
+			<g>
+				<polygon id="a_00000094583437176107196240000012670993097812007092_" class="st6" points="476,0 487,16 487,492 476,476 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	
+		<image style="overflow:visible;opacity:0.75;" width="476" height="473" xlink:href="BF360263.png"  transform="matrix(1 0 0 1 10 4)">
+	</image>
+	<g>
+		<rect x="45.4" y="39.3" class="st7" width="404.8" height="402.2"/>
+	</g>
+</g>
+<rect x="25.3" y="19.8" class="st8" width="441.6" height="441.6"/>
+</svg>

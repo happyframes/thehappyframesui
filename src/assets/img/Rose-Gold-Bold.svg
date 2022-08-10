@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 506 506" style="enable-background:new 0 0 506 506;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill-rule:evenodd;clip-rule:evenodd;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}
+	.st3{fill:none;stroke:#E0BFB8;stroke-width:17;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#DDCDCA;}
+</style>
+<g>
+	<g transform="translate(-538 -320)">
+		<g transform="translate(547 322)">
+			<g class="st0">
+				<polygon id="c" class="st1" points="0,0 476,0 476,476 0,476 				"/>
+			</g>
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1106.689" y1="527.7078" x2="-1105.6892" y2="526.7075" gradientTransform="matrix(476 0 0 -476 526784 251188.8125)">
+				<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.2"/>
+				<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			</linearGradient>
+			<polygon class="st2" points="0,0 476,0 476,476 0,476 			"/>
+			<path class="st3" d="M8.5,8.5v459h459V8.5H8.5z"/>
+			<g>
+				<polygon id="b" class="st4" points="0,476 476,476 487,492 11,492 				"/>
+			</g>
+			<g>
+				<polygon id="b_00000025435618197947885730000004296228956496595106_" class="st5" points="0,476 476,476 487,492 11,492 				"/>
+			</g>
+			<g>
+				<polygon id="a" class="st4" points="476,0 487,16 487,492 476,476 				"/>
+			</g>
+			<g>
+				<polygon id="a_00000172409450391910914220000005474749529733931431_" class="st5" points="476,0 487,16 487,492 476,476 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
