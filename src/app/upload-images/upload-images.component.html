@@ -306,14 +306,16 @@
 	<div class="modal-dialog">
 	  	<div class="modal-content">
 		    <div class="modal-header">
-		      <button type="button" class="close" data-dismiss="modal">&times;</button>
+		    	<h4 class="text-center pull-left">Adjust Crop</h4>
+		      <button type="button" class="close pull-right" data-dismiss="modal">&times;</button>
 		    </div>
 		    <div class="modal-body">
 		   		<div id="crop-basic"></div>
+		   		<h5 class="zoom-scrool">SCROLL TO ZOOM, DRAG TO MOVE</h5>
 		    </div>
 		    <div class="modal-footer">
 		    	<input type="button" value="Submit" class="btn btn-block btn-primary happy-frame-checkout btn-custom basic-result" style="margin: 0px;padding: 10px;width: 100px;float: right;" *ngIf="!cropLoader">
-		    	<div class="loader" style="margin: auto;" *ngIf="cropLoader"></div>
+		    	<div class="loader loader-crop" style="margin: auto;" *ngIf="cropLoader"></div>
 		    </div>
 	  	</div>
 	</div>

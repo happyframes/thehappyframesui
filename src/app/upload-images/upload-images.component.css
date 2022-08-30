@@ -344,6 +344,18 @@
   margin: auto;
     margin-top: 60px;
 }
+.loader-crop{
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    border: 6px solid #ffcc05;
+    border-top: 6px solid #000;
+}
+.zoom-scrool{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
