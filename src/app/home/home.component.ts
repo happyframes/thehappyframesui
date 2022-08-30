@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  	constructor(private readonly router: Router) { }
+
 
   ngOnInit(): void {
   }
+  openUploadImg(){
+		if(localStorage.getItem('userData')){
+			this.router.navigate(['/upload-images']);
+		}else{
+			this.router.navigate(['/login']);
+		}
+	}
 
 }

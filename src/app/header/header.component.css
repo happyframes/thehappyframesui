@@ -49,3 +49,44 @@
         padding: 10px 0px;
     }
 }
+.header-user a{
+    cursor: pointer;
+}
+.userDP{
+    position: absolute;
+    right: 0;
+    background-color: #ffcc05;
+    color: #000;
+    min-width: 150px;
+    min-height: 100px;
+    top: 56px;
+    border-radius: 4px;
+    z-index: 999;
+}
+.userDP ul{
+    margin: 0px;
+    padding: 0px;
+}
+.userDP ul li{
+    list-style: none;
+    font-size: 15px;
+    padding: 8px;
+    cursor: pointer;
+}
+.arrow-up{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffcc05;
+    position: absolute;
+    margin: auto;
+    right: 20px;
+    top: 46px;
+}
+.headeruser-inner{
+    cursor: pointer;
+}
+.openDropdown{
+    display: none;
+}

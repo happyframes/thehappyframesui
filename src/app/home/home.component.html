@@ -7,7 +7,7 @@
 			<div class="banner-headings">
 				<h1>Turn your photos into stunning wall art</h1>
 				<p>Design beautiful walls filled with memories using your favorite photos</p>
-					<input type="button" value="Style Your Photos" class="btn btn-block btn-primary btn-custom" [routerLink]="['/upload-images']">
+					<input type="button" value="Style Your Photos" class="btn btn-block btn-primary btn-custom" (click)="openUploadImg()">
 			</div>
 		</div>
 	</div>
@@ -73,7 +73,7 @@
 	<div class="row pad-mar-0 main-banner">
 		<div class="stylish-banner">
 			<img src="assets/img/banner.png">
-			<input type="button" value="Style Your Photos" class="btn btn-block btn-primary btn-custom style-input" [routerLink]="['/upload-images']">
+			<input type="button" value="Style Your Photos" class="btn btn-block btn-primary btn-custom style-input" (click)="openUploadImg()">
 		</div>
 	</div>
 	<!-- <div class="main-bottom">

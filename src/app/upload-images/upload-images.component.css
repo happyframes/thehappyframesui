@@ -67,11 +67,20 @@
     float: left;
 }
 .upload-frames-ui{
-    width: 95%;
-    height: 95%;
-    margin: 5px auto 0px auto;
+    height: 72%;
+    margin: auto;
     display: table;
-    border-radius: 4px;
+    margin-top: 29px;
+    position: relative;
+    left: -2px;
+}
+.upload-frames-ui-bold{
+    height: 88%;
+    margin: auto;
+    display: table;
+    margin-top: 9px;
+    position: relative;
+    left: -2px;
 }
 .img-frame{
     position: absolute;
@@ -190,6 +199,16 @@
     height: 40px;
     position: absolute;
     right: 30px;
+    top: 70px;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 9;
+    border-radius: 5px;
+}
+.crop-icon{
+    height: 38px;
+    position: absolute;
+    right: 30px;
     top: 20px;
     background-color: #fff;
     padding: 10px;
@@ -203,6 +222,9 @@
     display: none;
 }
 .delete-icon:hover + .img-frame {
+    filter: brightness(0.50);
+}
+.crop-icon:hover + .img-frame {
     filter: brightness(0.50);
 }
 .right-modal{
@@ -297,13 +319,6 @@
     margin-top: 18px;
     margin-left: 5px;
 }
-.alert-min{
-    position: absolute;
-    width: 100%;
-    top: 0;
-    text-align: center;
-    z-index: 999;
-}
 @media only screen and (min-width: 320px) and (max-width: 768px) {
     .botoom-modal-inner{
       width: 90%;
@@ -311,4 +326,31 @@
     .right-modal-inner{
         width: 100%;
     }
+}
+#demo-basic{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -100%;
+}
+.loader {
+    border: 16px solid #ffcc05;
+    border-radius: 50%;
+    border-top: 16px solid #000;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: auto;
+    margin-top: 60px;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

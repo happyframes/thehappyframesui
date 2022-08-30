@@ -7,11 +7,15 @@
 	background-color: #ffcc05;
     color: #000;
     border: 1px solid #ffcc05;
+    outline: none;
+    box-shadow: none;
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom:active{
 	background-color: #ffcc05;
     color: #000;
     border: 1px solid #ffcc05;
+    outline: none;
+    box-shadow: none;
 }
 .btn-custom.active.focus, .btn-custom.active:focus, .btn-custom.active:hover, .btn-custom:active.focus, 
 .btn-custom:active:focus, .btn-custom:active:hover, .open>.dropdown-toggle.btn-custom.focus, .open>.btn-custom.btn-primary:focus,
@@ -20,4 +24,11 @@
     color: #000;
     border: 1px solid #ffcc05;
     outline: none;
+}
+.alert-min{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    text-align: center;
+    z-index: 999;
 }

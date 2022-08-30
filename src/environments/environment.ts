@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   filestackApiKey: 'AIsKGxPnQDqVfWCKTbpFAz',
-  apiUrl: 'http://3.110.216.148:8000/',
+  apiUrl: 'http://13.234.217.51/api/',
 };
 
 /*

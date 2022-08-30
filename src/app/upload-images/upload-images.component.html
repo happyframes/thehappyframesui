@@ -3,13 +3,18 @@
 		<div class="col-lg-9">
 			<div class="upload-image-inner">
 				<h2>Pick some photos to get started</h2>
+				<div id="demo-basic"></div>
 				<div class="upload-box-image">
-				  	<div class="upload-box-image-inner" *ngFor="let uploadImage of uploadImagesList" style="box-shadow: none;" (mouseenter)="mouseEnter('hoverImg'+uploadImage.id)" (mouseleave)="mouseLeave('hoverImg'+uploadImage.id)">
+				  	<div class="upload-box-image-inner" *ngFor="let uploadImage of uploadImagesList" style="box-shadow: none;" (mouseenter)="mouseEnter('hoverImg'+uploadImage.id, uploadImage.id)" (mouseleave)="mouseLeave('hoverImg'+uploadImage.id, uploadImage.id)">
+				  		<img src="assets/img/crop.png" class="crop-icon none hoverImg{{uploadImage.id}}" (click)="cropFC(uploadImage.id)">
 				  		<img src="assets/img/delete.png" class="delete-icon none hoverImg{{uploadImage.id}}" (click)="deleteImg(uploadImage.id)"/>
-				  		<div class="img-frame" >
+				  		<div class="img-frame frame{{uploadImage.id}}" >
 				  			<img src="assets/img/{{frameSelect}}.svg" />
 				  		</div>
-				  		<img src="{{uploadImage.url}}" class="upload-frames-ui" />
+				  		<img src="{{uploadImage.url}}" class="upload-frames-ui add-frame-image" />
+				  	</div>
+				  	<div class="upload-box-image-inner" *ngIf="openLoader">
+				  		<div class="loader"></div>
 				  	</div>
 				  	<ng-picker-overlay
 						  [apikey]="apikey"
@@ -154,7 +159,7 @@
 				<p class="tile-count">{{ this.uploadImagesList.length }} frames</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
-				<p class="tile-count pull-right">US$11</p>
+				<p class="tile-count pull-right">INR {{ totalAmt }}</p>
 			</div>
 		</div>
 		<div class="row">
@@ -170,7 +175,7 @@
 				<p class="tile-count font-bold">Total</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
-				<p class="tile-count pull-right font-bold">US$11</p>
+				<p class="tile-count pull-right font-bold">INR {{ totalAmt }}</p>
 			</div>
 		</div>
 		<div class="row">
@@ -295,6 +300,22 @@
 			    </div>
 		  	</div>
 	  </form>
+	</div>
+</div>
+<div class="modal fade" id="cropModal" role="dialog">
+	<div class="modal-dialog">
+	  	<div class="modal-content">
+		    <div class="modal-header">
+		      <button type="button" class="close" data-dismiss="modal">&times;</button>
+		    </div>
+		    <div class="modal-body">
+		   		<div id="crop-basic"></div>
+		    </div>
+		    <div class="modal-footer">
+		    	<input type="button" value="Submit" class="btn btn-block btn-primary happy-frame-checkout btn-custom basic-result" style="margin: 0px;padding: 10px;width: 100px;float: right;" *ngIf="!cropLoader">
+		    	<div class="loader" style="margin: auto;" *ngIf="cropLoader"></div>
+		    </div>
+	  	</div>
 	</div>
 </div>
 <div class="alert alert-info alert-min" *ngIf="minTile">

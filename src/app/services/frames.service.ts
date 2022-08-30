@@ -12,4 +12,8 @@ export class FramesService {
     const url = 'loginApp/register/';
     return this.apiService.post(url, payload);
   }
+  otp(payload: any): Observable<any> {
+    const url = 'loginApp/verify_otp/';
+    return this.apiService.post(url, payload);
+  }
 }
