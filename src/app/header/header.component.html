@@ -12,7 +12,7 @@
 						<a [routerLink]="['/']">Home</a>
 					</li>
 					<li>
-						<a [routerLink]="['/upload-images']">Frame your Photo</a>
+						<a (click)="openUploadImg()" style="cursor: pointer;">Frame your Photo</a>
 					</li>
 					<li>
 						<a [routerLink]="['/']">FAQ's</a>
@@ -27,9 +27,17 @@
 		</div>
 	</div>
 	<div class="col-lg-2 col-md-2 col-xs-2 header-user">
-		<a [routerLink]="['/login']">
-			<img src="assets/img/user.png">
-		</a>
+		<div class="arrow-up openDropdown"></div>
+		<div class="headeruser-inner">
+			<img src="assets/img/user.png" (click)="openDP()">
+			<div class="userDP openDropdown">
+				<ul>
+					<li>My Orders</li>
+					<li (click)="logOutApp()">Log Out</li>
+				</ul>
+			</div>
+		</div>
+		
 		<div style="clear:both;"></div>
 	</div>
 </div>

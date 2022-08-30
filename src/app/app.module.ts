@@ -12,6 +12,7 @@ import { GiftCardComponent } from './gift-card/gift-card.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FilestackModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ImageCropperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

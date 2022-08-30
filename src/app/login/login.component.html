@@ -24,11 +24,16 @@
 							</a>
 						</div>
 						<p class="login-or"><span>or</span></p>
-						<form>
+						<form [formGroup]="loginForm" (ngSubmit)="submitHFLogin()">
 							<div class="form-group first">
-								<input type="email" class="form-control email-field" placeholder="Enter your email" id="email">
+								<input type="email" class="form-control email-field" placeholder="Enter your email" id="email" formControlName="email">
+								<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							        <div *ngIf="f.email.errors.required">Email is required</div>
+							        <div *ngIf="f.email.errors.email">Email is invalid</div>
+						      	</div>
 							</div>
-							<input type="button" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom" (click)="submitHFLogin()">
+							<input type="submit" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom" *ngIf="!loadingLogin">
+							<input type="submit" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom" disabled *ngIf="loadingLogin">
 						</form>
 					</div>
 					<div class="form-block mx-auto log-bg" *ngIf="emailCode">
@@ -44,14 +49,21 @@
 							<h3>Welcome</h3>
 						</div>
 						<div class="social-login-btn text-center">
-							<p>An email with the code has been sent to</p>
-							<p>ra@gmail.com.</p>
+							<p><b>An email with the code has been sent to</b></p>
+							<p><b>{{ loginForm.value.email }}</b></p>
 						</div>
-						<form>
+						<div class="alert alert-danger" *ngIf="invalidOTP">
+						    <strong>Invalid OTP!</strong>
+						</div>
+						<form [formGroup]="otpForm" (ngSubmit)="submitOTP()" autocomplete="off">
 							<div class="form-group first">
-								<input type="text" class="form-control email-field" placeholder="your code" id="urcode">
+								<input type="number" class="form-control email-field" placeholder="your code" id="urcode" formControlName="otp">
+								<div *ngIf="submittedOTP && fo.otp.errors" class="invalid-feedback">
+							        <div *ngIf="fo.otp.errors.required">your OTP is required</div>
+						      	</div>
 							</div>
-							<input type="button" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom" [routerLink]="['/upload-images']">
+							<input type="submit" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom">
+							<!-- [routerLink]="['/upload-images']" -->
 						</form>
 					</div>
 				</div>

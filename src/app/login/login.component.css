@@ -97,6 +97,8 @@
   box-sizing: border-box;
   position: relative;
   color: rgba(0,0,0,0.87);
+}
+.first{
   margin-bottom: 50px;
 }
 .login-happy-frames{
