@@ -9,11 +9,11 @@ export class FramesService {
 
   constructor(private readonly apiService: ApiService) { }
   login(payload: any): Observable<any> {
-    const url = 'loginApp/register/';
+    const url = 'api/loginApp/register/';
     return this.apiService.post(url, payload);
   }
   otp(payload: any): Observable<any> {
-    const url = 'loginApp/verify_otp/';
+    const url = 'api/loginApp/verify_otp/';
     return this.apiService.post(url, payload);
   }
 }
