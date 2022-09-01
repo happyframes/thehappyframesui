@@ -9,11 +9,15 @@ export class FramesService {
 
   constructor(private readonly apiService: ApiService) { }
   login(payload: any): Observable<any> {
-    const url = 'api/loginApp/register/';
+    const url = 'https://thehappyframes.com/api/loginApp/register/';
     return this.apiService.post(url, payload);
   }
   otp(payload: any): Observable<any> {
-    const url = 'api/loginApp/verify_otp/';
+    const url = 'https://thehappyframes.com/api/loginApp/verify_otp/';
+    return this.apiService.post(url, payload);
+  }
+  myorders(payload: any): Observable<any> {
+    const url = 'https://thehappyframes.com/api/orders/my_orders/';
     return this.apiService.post(url, payload);
   }
 }

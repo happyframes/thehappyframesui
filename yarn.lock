@@ -151,7 +151,7 @@
     "uuid" "8.3.2"
     "yargs" "17.4.1"
 
-"@angular/common@^10.0.8", "@angular/common@^13.0.0", "@angular/common@^14.0.0", "@angular/common@14.0.5":
+"@angular/common@^10.0.8", "@angular/common@^13.0.0", "@angular/common@^14.0.0", "@angular/common@>=13.0.0", "@angular/common@14.0.5":
   "integrity" "sha512-YFRPxx3yRLjk0gPL7tm/97mi8+Pjt3q6zWCjrLkAlDjniDvgmKNWIQ1h6crZQR0Cw7yNqK0QoFXQgTw0GJIWLQ=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.0.5.tgz"
   "version" "14.0.5"
@@ -181,7 +181,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^10.0.8", "@angular/core@^13.0.0", "@angular/core@^14.0.0", "@angular/core@14.0.5":
+"@angular/core@^10.0.8", "@angular/core@^13.0.0", "@angular/core@^14.0.0", "@angular/core@>=13.0.0", "@angular/core@14.0.5":
   "integrity" "sha512-4MIfFM2nD+N0/Dk8xKfKvbdS/zYRhQgdnKT6ZIIV7Y/XCfn5QAIa4+vB5BEAZpuzSsZHLVdBQQ0TkaiONLfL2Q=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.0.5.tgz"
   "version" "14.0.5"
@@ -4484,6 +4484,13 @@
   "integrity" "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
+
+"ngx-image-cropper@^6.2.2":
+  "integrity" "sha512-/jPSq7zDpkg5b9vnZQh1JZB576SsTtr98W7t4FaHxVwYVnszWyMPXfftWeQymDpec9ReDwpa/FIM9g23d44D1w=="
+  "resolved" "https://registry.npmjs.org/ngx-image-cropper/-/ngx-image-cropper-6.2.2.tgz"
+  "version" "6.2.2"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "node-forge@^1":
   "integrity" "sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA=="

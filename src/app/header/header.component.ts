@@ -34,4 +34,7 @@ export class HeaderComponent implements OnInit {
 		localStorage.removeItem("userData");
 		this.router.navigate(['/']);
 	}
+	openMenu(){
+		$(".mobile-menu-main").toggle();
+	}
 }

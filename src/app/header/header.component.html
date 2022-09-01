@@ -1,10 +1,10 @@
 <div class="row header-main">
-	<div class="col-lg-2 col-md-2 col-xs-12 header-logo">
+	<div class="col-lg-2 col-md-2 col-xs-6 header-logo">
 		<a [routerLink]="['/']">
 			<img src="assets/img/Logo.png">
 		</a>
 	</div>
-	<div class="col-lg-8 col-md-8 col-xs-10 header-menu">
+	<div class="col-lg-8 col-md-8 col-xs-10 header-menu hide-mobile">
 		<div class="header-menu-inside">
 			<div class="header-menu-under">
 				<ul>
@@ -26,18 +26,42 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-2 col-md-2 col-xs-2 header-user">
-		<div class="arrow-up openDropdown"></div>
+	<div class="col-lg-2 col-md-2 col-xs-6 header-user">
+		<div class="mobile-menu show-mobile">
+			<img src="assets/img/menu.png" class="menu-icon" (click)="openMenu()">
+		</div>
 		<div class="headeruser-inner">
-			<img src="assets/img/user.png" (click)="openDP()">
+			<div class="arrow-up openDropdown"></div>
+			<img src="assets/img/user.png" class="user-icon" (click)="openDP()">
 			<div class="userDP openDropdown">
-				<ul>
-					<li>My Orders</li>
+				<ul (click)="openDP()">
+					<li [routerLink]="['/my-orders']">My Orders</li>
 					<li (click)="logOutApp()">Log Out</li>
 				</ul>
 			</div>
 		</div>
 		
 		<div style="clear:both;"></div>
+	</div>
+	<div class="mobile-menu-main">
+		<button type="button" class="close pull-right" style="color: #ffcc05;
+    opacity: 1;
+    font-size: 40px;
+    margin: 0px 10px;" (click)="openMenu()">&times;</button>
+		<ul>
+			<li (click)="openMenu()">
+				<a [routerLink]="['/']">Home</a>
+			</li>
+			<li (click)="openMenu()">
+				<a (click)="openUploadImg()" style="cursor: pointer;">Frame your Photo</a>
+			</li>
+			<li (click)="openMenu()">
+				<a [routerLink]="['/']">FAQ's</a>
+			</li>
+			<li (click)="openMenu()">
+				<a [routerLink]="['/']">Contact Us</a>
+			</li>
+			<div style="clear:both;"></div>
+		</ul>
 	</div>
 </div>
