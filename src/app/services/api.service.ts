@@ -14,23 +14,22 @@ export class ApiService {
   constructor(private readonly http: HttpClient) { }
 
   get(path: string): Observable<any> {
-    const url = this.envUrl.apiUrl + path;
+    const url = path;
     return this.http.get(url);
   }
 
   delete(path: string): Observable<any> {
-    const url = this.envUrl.apiUrl + path;
+    const url = path;
     return this.http.delete(url);
   }
 
   post(path: string, body: any): Observable<any> {
-    const url = this.envUrl.apiUrl + path;
-    console.log("url", url)
+    const url = path;
     return this.http.post(url, body);
   }
 
   put(path: string, body: any): Observable<any> {
-    const url = this.envUrl.apiUrl + path;
+    const url = path;
     return this.http.put(url, body);
   }
 }

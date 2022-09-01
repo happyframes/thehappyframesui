@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     UploadImagesComponent,
     GiftCardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -25,9 +25,13 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
+              "src/assets/css/croppe.css",
+              "src/assets/css/dataTables.bootstrap.min.css",
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
+              "src/assets/js/croppe.js",
+              "src/assets/js/jquery.dataTables.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
             ]
           },
@@ -36,13 +40,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "150kb",
+                  "maximumError": "150kb"
                 }
               ],
               "fileReplacements": [

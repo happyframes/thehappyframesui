@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { UsersGuard } from './users.guard';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'upload-images', component: UploadImagesComponent, canActivate: [ UsersGuard ] },
+	{ path: 'my-orders', component: MyOrdersComponent, canActivate: [ UsersGuard ] },
 ];
 // canActivate: [ UsersGuard ]
 @NgModule({

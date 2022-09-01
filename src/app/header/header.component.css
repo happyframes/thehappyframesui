@@ -6,7 +6,7 @@
 .header-logo img{
 	height: 60px;
 }
-.header-user img{
+.header-user .user-icon{
 	height: 30px;
     float: right;
     margin-top: 15px;
@@ -38,19 +38,69 @@
     .header-main{
         padding: 20px 10px;
     }
-    .header-logo img{
-        margin: auto;
-        display: table;
-    }
-    .header-user img{
-        margin-top: 30px;
-    }
     .header-menu-under ul li {
         padding: 10px 0px;
     }
+    .hide-mobile{
+        display: none;
+    }
+    .show-mobile{
+        display: block !important;
+    }
+    .menu-icon{
+        height: 30px;
+        margin-top: 15px;
+    }
+    .header-user .user-icon{
+        float: none;
+    }
+    .mobile-menu{
+        float: right;
+    }
+    .headeruser-inner{
+        float: left;
+        position: relative;
+        margin-left: 50px;
+    }
+    .arrow-up{
+        right: 10px !important;
+    }
+    .mobile-menu-main{
+        position: absolute;
+        background: #000;
+        left: 0;
+        width: 80%;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+        border-right: 1px solid #ffcc05;
+        display: none;
+    }
+    .mobile-menu-main ul{
+        list-style: none;
+        padding: 20px;
+    }
+    .mobile-menu-main ul li{
+        padding: 10px 0px;
+    }
+    .mobile-menu-main ul li a{
+        color: #fff;
+    }
+    .mobile-menu-main ul li a:hover, 
+    .mobile-menu-main ul li a:active, 
+    .mobile-menu-main ul li a:focus{
+        text-decoration: none;
+        color: #fff;
+    }
+}
+.show-mobile{
+    display: none;
 }
 .header-user a{
     cursor: pointer;
+}
+.mobile-menu-main{
+    display: none;
 }
 .userDP{
     position: absolute;

@@ -12,7 +12,7 @@ declare var $: any;
 })
 export class UploadImagesComponent implements OnInit {
 
-	apikey: string = '';
+	apikey: string = 'AIsKGxPnQDqVfWCKTbpFAz';
 	uploadImagesList: any = [];
 	uploadImagesListOrginal: any = [];
 	uploadRes: any = [];
@@ -47,9 +47,7 @@ export class UploadImagesComponent implements OnInit {
             zipcode: ['', Validators.required],
             country: ['', Validators.required],
             phoneNumber: ['', Validators.required],
-        });
-		this.apikey = this.envUrl.filestackApiKey;
-		
+        });		
 	}
 
 	get f() { return this.addressForm.controls; }
@@ -229,6 +227,7 @@ export class UploadImagesComponent implements OnInit {
    		if(this.uploadImagesList.length < 3){
    			this.minTile = true;
    		}else{
+   			this.totalAmt = 999;
 			this.openRightModal = true;
 			let amountAdd = this.uploadImagesList.length - 3;
 			if(amountAdd != 0){
