@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
   selector: 'app-upload-images',
   templateUrl: './upload-images.component.html',
-  styleUrls: ['./upload-images.component.css']
+  styleUrls: ['./upload-images.component.css'],
 })
 export class UploadImagesComponent implements OnInit {
 
@@ -41,7 +41,6 @@ export class UploadImagesComponent implements OnInit {
 			email: ['', [Validators.required, Validators.email]],
             fullName: ['', Validators.required],
             address1: ['', Validators.required],
-            address2: ['', Validators.required],
             city: ['', Validators.required],
             state: ['', Validators.required],
             zipcode: ['', Validators.required],
@@ -61,6 +60,8 @@ export class UploadImagesComponent implements OnInit {
     }
 
     cropUploadImage(url: any) {
+      console.log("cropUploadImage", this.frameSelect);
+
     	$("#demo-basic").empty();
     	$("#demo-basic").removeClass('croppie-container');
         var $w = $('.basic-width'),
@@ -78,8 +79,14 @@ export class UploadImagesComponent implements OnInit {
         basic.croppie('bind', {
             url: url,
         });
-        setTimeout(()=>{  
-		    let w = parseInt($w.val(), 10),
+
+        
+        var data = setInterval(() => {
+          var findimage = $('.cr-image').attr('src');
+          console.log('dd', findimage);
+          if(findimage){
+            clearInterval(data);
+            let w = parseInt($w.val(), 10),
                 h = parseInt($h.val(), 10),
                 size = 'viewport';
             basic.croppie('result', {
@@ -89,17 +96,22 @@ export class UploadImagesComponent implements OnInit {
                     height: 50
                 }
             }).then((resp: any)=>{ 
-            	let objetImage = resp;
-            	let uploadObj = {
-					filename: this.uploadRes.filesUploaded[0].filename,
-					url: resp,
-					size: this.uploadRes.filesUploaded[0].size,
-					id: ++this.indexValue
-				}
-				this.uploadImagesList.push(uploadObj);
-				this.openLoader = false;
-            });		
-		}, 2000);
+              console.log("resp", resp)
+              let uploadObj = {
+                filename: this.uploadRes.filesUploaded[0].filename,
+                url: resp,
+                size: this.uploadRes.filesUploaded[0].size,
+                id: ++this.indexValue
+              }
+              this.uploadImagesList.push(uploadObj);
+              this.openLoader = false;
+              setTimeout(() => {
+                this.frameList(this.frameSelect);
+              }, 100);
+            });
+          }
+        }, 1000);
+
     }
 
     cropUploadImage2(url: any, indexNumber:any) {

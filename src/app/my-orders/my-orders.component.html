@@ -23,9 +23,15 @@
                 </td>
                 <td>{{myOrder.tile}}</td>
             </tr>
+            <tr *ngIf="!noData">
+            	<td valign="top" colspan="6">
+            		<div class="loader"></div>
+            	</td>
+            </tr>
             <tr class="nodata" *ngIf="noData">
             	<td valign="top" colspan="6" class="dataTables_empty">No data available in table</td>
             </tr>
         </tbody>
     </table>
+
 </div>
