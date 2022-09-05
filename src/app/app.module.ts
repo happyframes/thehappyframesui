@@ -14,6 +14,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { FaqComponent } from './faq/faq.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ShippingPolicyComponent } from './shipping-policy/shipping-policy.component';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     GiftCardComponent,
     HeaderComponent,
     FooterComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    FaqComponent,
+    PrivacyPolicyComponent,
+    ShippingPolicyComponent,
+    TermsConditionsComponent
   ],
   imports: [
     BrowserModule,

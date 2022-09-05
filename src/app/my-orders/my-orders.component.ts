@@ -16,7 +16,8 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit(): void {
   	$('#myorders').DataTable();
-    this.framesService.myorders({"email": 'ncsvsmanohar77@gmail.com'}).subscribe((response: any) => {
+  	let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
+    this.framesService.myorders({"email": userdata.email}).subscribe((response: any) => {
       console.log("response", response.data)
       this.myOrders = response.data;
       if(this.myOrders.length != 0){

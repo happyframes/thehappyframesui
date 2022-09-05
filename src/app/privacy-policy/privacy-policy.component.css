@@ -1,0 +1,16 @@
+.cont{
+	background-color: #000;
+	padding: 80px;
+}
+.para{
+	font-size: 16px;
+    color: #ffcc05;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+br{
+	content: "";
+    margin: 20px;
+    display: block;
+    font-size: 24%;
+}
