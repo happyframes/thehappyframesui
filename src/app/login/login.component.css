@@ -128,4 +128,15 @@
     .contents{
       width: 100% !important;
     }
+    .log-bg{
+      display: none;
+    }
+    .half .contents {
+      padding: 80px 0px; 
+    }
+    .half, .half .container > .row {
+        height: auto;
+        min-height: auto;
+        display: block;
+    }
 }
