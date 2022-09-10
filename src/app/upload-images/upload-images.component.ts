@@ -115,7 +115,7 @@ export class UploadImagesComponent implements OnInit {
     });
 
     document.body.appendChild(my_form);
-    // my_form.submit();
+    my_form.submit();
   }
 
 	get f() { return this.addressForm.controls; }
