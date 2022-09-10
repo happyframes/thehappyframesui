@@ -12,19 +12,26 @@ declare var $: any;
 export class MyOrdersComponent implements OnInit {
 	myOrders: any = [];
 	noData: boolean = true;
+  loaderData: boolean = true;
   constructor(private readonly framesService: FramesService) { }
 
   ngOnInit(): void {
-  	$('#myorders').DataTable();
+
+  	
   	let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     this.framesService.myorders({"email": userdata.email}).subscribe((response: any) => {
       console.log("response", response.data)
       this.myOrders = response.data;
+      this.loaderData = false;
+      // setTimeout(function(){
+      //   $('#myorders').DataTable();
+      // },3000)
       if(this.myOrders.length != 0){
       	this.noData = false;
       }
     }, (error: any) => {
     	console.log('error', error)
+      this.loaderData = false;
     });
   }
 

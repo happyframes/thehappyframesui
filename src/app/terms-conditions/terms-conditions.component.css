@@ -2,9 +2,13 @@
 	background-color: #000;
 	padding: 80px;
 }
+.cont div{
+    margin: auto;
+    display: table;
+}
 .para{
 	font-size: 16px;
-    color: #ffcc05;
+    color: #fff;
     letter-spacing: 1px;
     line-height: 2;
 }

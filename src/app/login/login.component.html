@@ -12,9 +12,12 @@
 					</div>
 					<div class="form-block mx-auto" *ngIf="!emailCode">
 						<div class="text-center mb-5 login-happy-frames">
-							<h3>Login to <strong>The Happy Frames</strong></h3>
+							<h3>Login to</h3>
 						</div>
-						<div class="social-login-btn">
+						<div class="text-center mb-5 login-happy-frames">
+							<h3><strong>The Happy Frames</strong></h3>
+						</div>
+						<!-- <div class="social-login-btn">
 							<a class="btn btn-primary login-fb">
 								Log in with Facebook
 							</a>
@@ -23,7 +26,7 @@
 								Log in with Gmail
 							</a>
 						</div>
-						<p class="login-or"><span>or</span></p>
+						<p class="login-or"><span>or</span></p> -->
 						<form [formGroup]="loginForm" (ngSubmit)="submitHFLogin()">
 							<div class="form-group first">
 								<input type="email" class="form-control email-field" placeholder="Enter your email" id="email" formControlName="email">

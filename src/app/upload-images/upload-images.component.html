@@ -164,6 +164,14 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count">GST</p>
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="tile-count pull-right">18%</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-xs-6">
 				<p class="tile-count">Shipping</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
@@ -175,7 +183,7 @@
 				<p class="tile-count font-bold">Total</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
-				<p class="tile-count pull-right font-bold">INR {{ totalAmt }}</p>
+				<p class="tile-count pull-right font-bold">INR {{ totalAmtWithGST }}</p>
 			</div>
 		</div>
 		<div class="row">
@@ -295,8 +303,8 @@
 			      	</div>
 			    </div>
 			    <div class="modal-footer">
-			      <button type="submit" class="btn btn-primary btn-custom" *ngIf="addressForm.invalid">Submit</button>
-			      <button type="button" class="btn btn-primary btn-custom" *ngIf="!addressForm.invalid" data-dismiss="modal">Submit</button>
+			      <button type="submit" class="btn btn-primary btn-custom modal-footer-btn" *ngIf="addressForm.invalid">Submit</button>
+			      <button type="button" class="btn btn-primary btn-custom modal-footer-btn" *ngIf="!addressForm.invalid" data-dismiss="modal">Submit</button>
 			    </div>
 		  	</div>
 	  </form>

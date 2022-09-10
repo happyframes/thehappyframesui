@@ -1,3 +1,31 @@
+
+@font-face {
+   font-family: COMIC;
+   src: url(./assets/fonts/COMIC.ttf);
+}
+@font-face {
+   font-family: comici;
+   src: url(./assets/fonts/comici.ttf);
+}
+@font-face {
+   font-family: ComicSansMS3;
+   src: url(./assets/fonts/ComicSansMS3.ttf);
+}
+@font-face {
+   font-family: comicz;
+   src: url(./assets/fonts/comicz.ttf);
+}
+@font-face {
+   font-family: design.graffiti.comicsansms;
+   src: url(./assets/fonts/design.graffiti.comicsansms.ttf);
+}
+@font-face {
+   font-family: design.graffiti.comicsansmsgras;
+   src: url(./assets/fonts/design.graffiti.comicsansmsgras.ttf);
+}
+body{
+    font-family: COMIC;
+}
 /* You can add global styles to this file, and also import other style files */
 .invalid-feedback{
 	color: red;
