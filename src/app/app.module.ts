@@ -18,6 +18,7 @@ import { FaqComponent } from './faq/faq.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ShippingPolicyComponent } from './shipping-policy/shipping-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { PaymentStatusComponent } from './payment-status/payment-status.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
     FaqComponent,
     PrivacyPolicyComponent,
     ShippingPolicyComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    PaymentStatusComponent
   ],
   imports: [
     BrowserModule,

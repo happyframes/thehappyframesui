@@ -8,6 +8,7 @@ import { FaqComponent } from './faq/faq.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { ShippingPolicyComponent } from './shipping-policy/shipping-policy.component';
+import { PaymentStatusComponent } from './payment-status/payment-status.component';
 import { UsersGuard } from './users.guard';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
 	{ path: 'privacy-policy', component: PrivacyPolicyComponent },
 	{ path: 'terms-conditions', component: TermsConditionsComponent },
 	{ path: 'shipping-policy', component: ShippingPolicyComponent },
+	{ path: 'payment-status', component: PaymentStatusComponent },
 ];
 // canActivate: [ UsersGuard ]
 @NgModule({
