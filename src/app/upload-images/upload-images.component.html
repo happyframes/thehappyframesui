@@ -1,5 +1,5 @@
 <div class="upload-main-cont">
-	<div class="row upload-main">
+	<div class="row upload-main" id="paymentFrm">
 		<div class="col-lg-9">
 			<div class="upload-image-inner">
 				<h2>Pick some photos to get started</h2>
@@ -162,14 +162,14 @@
 				<p class="tile-count pull-right">INR {{ totalAmt }}</p>
 			</div>
 		</div>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-lg-6 col-md-6 col-xs-6">
 				<p class="tile-count">GST</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
 				<p class="tile-count pull-right">18%</p>
 			</div>
-		</div>
+		</div> -->
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-xs-6">
 				<p class="tile-count">Shipping</p>
@@ -188,7 +188,8 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
-				<input type="button" value="Place Order" class="btn btn-block btn-primary happy-frame-checkout btn-custom" (click)="plcaeOrder()">
+				<input type="button" value="Place Order" class="btn btn-block btn-primary happy-frame-checkout btn-custom" (click)="placeOrder()" *ngIf="!placeOrderParam">
+				<div class="loader loader-crop" style="margin: auto;" *ngIf="placeOrderParam"></div>
 			</div>
 		</div>
 
@@ -229,7 +230,7 @@
 			      		<div class="col-lg-6">
 			      			<div class="form-group form-mar">
 							    <label for="address2">Phone Number</label>
-							    <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber">
+							    <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber" maxLength="10">
 							    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
 							        <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
 						      	</div>
@@ -329,7 +330,10 @@
 	</div>
 </div>
 <div class="alert alert-info alert-min" *ngIf="minTile">
-    <strong>Minimum 3 frames should be uploaded!</strong>
+    <strong>Minimum 1 frame should be uploaded!</strong>
+</div>
+<div class="alert alert-info alert-min" *ngIf="bulkOrder">
+    <strong>For bulk orders contact us!</strong>
 </div>
 <div class="alert alert-info alert-min" *ngIf="addAdress">
     <strong>Please add address!</strong>

@@ -12,11 +12,97 @@ declare var $: any;
   styleUrls: ['./upload-images.component.css'],
 })
 export class UploadImagesComponent implements OnInit {
-
-	apikey: string = 'AOXdUH200TsO1dl21Qikez';
+  amountCheck : any = [
+    {
+      'frame' : 1,
+      'amount': 499
+    },
+    {
+      'frame' : 2,
+      'amount': 998
+    },
+    {
+      'frame' : 3,
+      'amount': 999
+    },
+    {
+      'frame' : 4,
+      'amount': 1498
+    },
+    {
+      'frame' : 5,
+      'amount': 1997
+    },
+    {
+      'frame' : 6,
+      'amount': 1998
+    },
+    {
+      'frame' : 7,
+      'amount': 2497
+    },
+    {
+      'frame' : 8,
+      'amount': 2996
+    },
+    {
+      'frame' : 9,
+      'amount': 2997
+    },
+    {
+      'frame' : 10,
+      'amount': 3496
+    },
+    {
+      'frame' : 11,
+      'amount': 3995
+    },
+    {
+      'frame' : 12,
+      'amount': 3996
+    },
+    {
+      'frame' : 13,
+      'amount': 4495
+    },
+    {
+      'frame' : 14,
+      'amount': 4994
+    },
+    {
+      'frame' : 15,
+      'amount': 4995
+    },
+    {
+      'frame' : 16,
+      'amount': 5494
+    },
+    {
+      'frame' : 17,
+      'amount': 5993
+    },
+    {
+      'frame' : 18,
+      'amount': 5994
+    },
+    {
+      'frame' : 19,
+      'amount': 6493
+    },
+    {
+      'frame' : 20,
+      'amount': 6992
+    },
+    {
+      'frame' : 21,
+      'amount': 6993
+    },
+  ]
+	apikey: string = 'AIsKGxPnQDqVfWCKTbpFAz';
 	uploadImagesList: any = [];
 	uploadImagesListOrginal: any = [];
 	uploadRes: any = [];
+  bulkOrder: boolean = false;
 	frameSelect: string = 'White';
 	openLowImage: boolean = false;
 	openRightModal: boolean = false;
@@ -29,6 +115,7 @@ export class UploadImagesComponent implements OnInit {
 	addAdress: boolean = false;
 	totalAmt : number = 999;
   totalAmtWithGST: number = 0;
+  placeOrderParam: boolean = false;
 	envUrl : any = environment;
 	imageChangedEvent: any = '';
     croppedImage: string = '';
@@ -39,15 +126,17 @@ export class UploadImagesComponent implements OnInit {
 	constructor(private formBuilder: FormBuilder, private readonly framesService: FramesService,) { }
 
 	ngOnInit() {
+    let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
+      let addressData = userdata.address && JSON.parse(userdata.address);
 		this.addressForm = this.formBuilder.group({
-			email: ['', [Validators.required, Validators.email]],
-            fullName: ['', Validators.required],
-            address1: ['', Validators.required],
-            city: ['', Validators.required],
-            state: ['', Validators.required],
-            zipcode: ['', Validators.required],
-            country: ['', Validators.required],
-            phoneNumber: ['', Validators.required],
+			email: [{value: userdata.email, disabled: true}, [Validators.required, Validators.email]],
+            fullName: [userdata.full_name, Validators.required],
+            address1: [addressData.address1, Validators.required],
+            city: [addressData.city, Validators.required],
+            state: [addressData.state, Validators.required],
+            zipcode: [addressData.pin, Validators.required],
+            country: ['India', Validators.required],
+            phoneNumber: [userdata.mobile, Validators.required],
         });	
 	}
 
@@ -84,10 +173,12 @@ export class UploadImagesComponent implements OnInit {
           console.log("response fro pay", response)
           this.handleSuccess(response.data);
         }, (error: any) => {
-          console.log('error pay', error)
+          console.log('error pay', error);
+          this.placeOrderParam = false;
         });
       }, (error: any) => {
-        console.log('error', error)
+        console.log('error', error);
+        this.placeOrderParam = false;
       });
   } 
 
@@ -95,11 +186,18 @@ export class UploadImagesComponent implements OnInit {
     console.log('res', res);
     let keyArr = Object.keys(res);
     let valArr = Object.values(res);
-    console.log('res', keyArr, valArr);
+    let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
+
     const my_form: any = document.createElement('form');
+    my_form.action = 'https://securegw-stage.paytm.in/order/process/';
     my_form.name = 'paytm_form';
     my_form.method = 'post';
-    my_form.action = 'https://securegw-stage.paytm.in/order/process';
+
+    // let inpemail: any = document.createElement("input");
+    // inpemail.type = "hidden";
+    // inpemail.name = 'email';
+    // inpemail.value = userdata.email;
+    // my_form.appendChild(inpemail);
 
     keyArr.map((k, i) => {
       // create an input element
@@ -309,30 +407,40 @@ export class UploadImagesComponent implements OnInit {
           
    checkOut(){
    		this.windowScroolUp();
-   		if(this.uploadImagesList.length < 3){
+   		if(this.uploadImagesList.length < 1){
    			this.minTile = true;
-   		}else{
+   		}else if(this.uploadImagesList.length > 21){
+        this.bulkOrder = true;
+      }else{
   			this.openRightModal = true;
-  			let amountAdd = this.uploadImagesList.length - 3;
-  			if(amountAdd != 0){
-  				let totalAmtMultiPly = amountAdd*300;
-  				this.totalAmt = this.totalAmt + totalAmtMultiPly;
-          let gstValue = this.percentage(this.totalAmt, 18);
-          this.totalAmtWithGST = this.totalAmt + gstValue;
-  			}else{
-          this.totalAmt = 999;
-          let gstValue = this.percentage(this.totalAmt, 18);
-          this.totalAmtWithGST = this.totalAmt + gstValue;
-        }
+        this.amountCheck.forEach((obj: any) => {
+            if(obj.frame === this.uploadImagesList.length){
+              this.totalAmt = obj.amount;
+              this.totalAmtWithGST = obj.amount;
+            }
+        });
+  			// let amountAdd = this.uploadImagesList.length - 3;
+  			// if(amountAdd != 0){
+  			// 	let totalAmtMultiPly = amountAdd*300;
+  			// 	this.totalAmt = this.totalAmt + totalAmtMultiPly;
+     //      // let gstValue = this.percentage(this.totalAmt, 18);
+     //      this.totalAmtWithGST = this.totalAmt;
+  			// }else{
+     //      this.totalAmt = 999;
+     //      // let gstValue = this.percentage(this.totalAmt, 18);
+     //      this.totalAmtWithGST = this.totalAmt;
+     //    }
    		}
    		setTimeout(() => {
 	        this.minTile = false;
+          this.bulkOrder = false;
 	    }, 3000);
    }
-   plcaeOrder(){
+   placeOrder(){
    		if(this.addressForm.invalid){
    			this.addAdress = true;
    		}else{
+        this.placeOrderParam = true;
         this.checkOutService();
       }
    		setTimeout(() => {
