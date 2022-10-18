@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-payment-status',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-status.component.css']
 })
 export class PaymentStatusComponent implements OnInit {
+	errorMsg : string = '';
 
-  constructor() { }
+	constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+		this.route.queryParams
+	      .subscribe(params => {
+	        console.log(params);
+	        this.errorMsg = params.errorMessage;
+	      }
+	    );
+	}
 
 }

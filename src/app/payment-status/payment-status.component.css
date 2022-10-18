@@ -1,0 +1,40 @@
+.success {
+    color: #ffcc05;
+    font-weight: 900;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+.we-recived {
+    color: #404F5E;
+    font-size:20px;
+    margin: 0;
+    width: 500px;
+  }
+.checkmark {
+  color: #ffcc05;
+  font-size: 100px;
+  line-height: 200px;
+  margin: auto;
+  display: table;
+}
+.checkmark-x {
+  color: red;
+  font-size: 100px;
+  line-height: 200px;
+  margin: auto;
+  display: table;
+}
+.card {
+  background: white;
+  padding: 60px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #C8D0D8;
+  display: inline-block;
+  margin: 50px auto;
+  display: table;
+}
+.golink{
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+}

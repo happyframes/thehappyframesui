@@ -118,10 +118,10 @@ export class UploadImagesComponent implements OnInit {
   placeOrderParam: boolean = false;
 	envUrl : any = environment;
 	imageChangedEvent: any = '';
-    croppedImage: string = '';
-    storeImage: any = [];
-    openLoader: boolean = false;
-    cropLoader: boolean = false;
+  croppedImage: string = '';
+  storeImage: any = [];
+  openLoader: boolean = false;
+  cropLoader: boolean = false;
 
 	constructor(private formBuilder: FormBuilder, private readonly framesService: FramesService,) { }
 
@@ -170,7 +170,7 @@ export class UploadImagesComponent implements OnInit {
             "email": userdata.email
         }
         this.framesService.paytmCheckout(paytmData).subscribe((response: any) => {
-          console.log("response fro pay", response)
+          console.log("response from pay", response)
           this.handleSuccess(response.data);
         }, (error: any) => {
           console.log('error pay', error);
@@ -189,7 +189,7 @@ export class UploadImagesComponent implements OnInit {
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
 
     const my_form: any = document.createElement('form');
-    my_form.action = 'https://securegw-stage.paytm.in/order/process/';
+    my_form.action = 'https://securegw.paytm.in/order/process/';
     my_form.name = 'paytm_form';
     my_form.method = 'post';
 

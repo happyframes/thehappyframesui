@@ -1,1 +1,16 @@
-<h2 class="text-center" style="margin: 50px 0px;">payment succuessfull</h2>
+<div class="card" *ngIf="!errorMsg">
+	<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+		<i class="checkmark">✓</i>
+	</div>
+	<h1 class="success text-center">Success</h1> 
+	<p class="we-recived text-center">We received your purchase request;<br/> we'll be in touch shortly!</p>
+	<p style="margin-bottom: 20px;" class="golink">Go to <a [routerLink]="['/']">Dashboard</a> or <a [routerLink]="['/my-orders']">My orders</a></p>
+</div>
+<div class="card" *ngIf="errorMsg">
+	<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+		<i class="checkmark-x">X</i>
+	</div>
+	<h1 class="success text-center">Failure</h1> 
+	<p class="we-recived text-center">{{ errorMsg }}</p>
+	<p style="margin-bottom: 20px;" class="golink">Go to <a [routerLink]="['/']">Dashboard</a> or <a [routerLink]="['/my-orders']">My orders</a></p>
+</div>
