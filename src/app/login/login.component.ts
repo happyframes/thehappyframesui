@@ -45,11 +45,9 @@ export class LoginComponent implements OnInit {
 	}
 	loginFunc() {
 	    this.framesService.login({"email": this.loginForm.value.email}).subscribe((response: any) => {
-	      console.log("response", response)
 	      this.emailCode = true;
 	      this.loadingLogin = false;
 	    }, (error: any) => {
-	    	console.log('error', error)
 	    	this.loadingLogin = false;
 	    });
  	}
@@ -63,12 +61,14 @@ export class LoginComponent implements OnInit {
  	}
  	otpFunc() {
 	    this.framesService.otp({"email": this.loginForm.value.email, "otp": this.otpForm.value.otp}).subscribe((response: any) => {
-	      	console.log('response', response, response.data[0])
 	      	localStorage.setItem('userData', JSON.stringify(response.data[0]));
-	      	this.router.navigate(['/upload-images']);
+	      	if(response.data[0].is_staff){
+	      		this.router.navigate(['/my-orders']);
+	      	}else{
+		      	this.router.navigate(['/upload-images']);
+	      	}
 	      	this.invalidOTP = false;
 	    }, (error: any) => {
-	    	console.log('error', error.error.error_msg);
 	    	this.invalidOTP = true;
 	    	setTimeout(() => {
 		        this.invalidOTP = false;

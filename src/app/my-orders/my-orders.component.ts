@@ -16,23 +16,37 @@ export class MyOrdersComponent implements OnInit {
   constructor(private readonly framesService: FramesService) { }
 
   ngOnInit(): void {
-
-  	
   	let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
-    this.framesService.myorders({"email": userdata.email}).subscribe((response: any) => {
-      console.log("response", response.data)
-      this.myOrders = response.data;
-      this.loaderData = false;
-      // setTimeout(function(){
-      //   $('#myorders').DataTable();
-      // },3000)
-      if(this.myOrders.length != 0){
-      	this.noData = false;
-      }
-    }, (error: any) => {
-    	console.log('error', error)
-      this.loaderData = false;
-    });
+    if(userdata.is_staff){
+      this.framesService.allorders({"email": userdata.email}).subscribe((response: any) => {
+        if(response.message === "No orders"){
+          this.loaderData = false;
+        }else{
+          this.myOrders = response.data;
+        }
+        if(this.myOrders.length != 0){
+          this.noData = false;
+        }
+      }, (error: any) => {
+        this.loaderData = false;
+        this.noData = false;
+      });
+    }else{
+      this.framesService.myorders({"email": userdata.email}).subscribe((response: any) => {
+        if(response.message === "No orders"){
+          this.loaderData = false;
+        }else{
+          this.myOrders = response.data;
+        }
+        if(this.myOrders.length != 0){
+          this.noData = false;
+        }
+      }, (error: any) => {
+        this.loaderData = false;
+        this.noData = false;
+      });
+    }
+
   }
 
 }
