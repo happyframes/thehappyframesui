@@ -131,10 +131,10 @@ export class UploadImagesComponent implements OnInit {
 		this.addressForm = this.formBuilder.group({
 			email: [{value: userdata.email, disabled: true}, [Validators.required, Validators.email]],
             fullName: [userdata.full_name, Validators.required],
-            address1: [addressData.address1, Validators.required],
-            city: [addressData.city, Validators.required],
-            state: [addressData.state, Validators.required],
-            zipcode: [addressData.pin, Validators.required],
+            address1: [addressData && addressData.address1 && addressData.address1, Validators.required],
+            city: [addressData && addressData.city && addressData.city, Validators.required],
+            state: [addressData && addressData.state && addressData.state, Validators.required],
+            zipcode: [addressData && addressData.pin && addressData.pin, Validators.required],
             country: ['India', Validators.required],
             phoneNumber: [userdata.mobile, Validators.required],
         });	
@@ -143,7 +143,6 @@ export class UploadImagesComponent implements OnInit {
   checkOutService() {
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     let resultImgArray = this.uploadImagesList.map((a: any) => a.url);
-    console.log("resultImgArray", resultImgArray)
     let addressData = {
       'address1': this.addressForm.value.address1,
       'address2': this.addressForm.value.address2,
@@ -161,29 +160,23 @@ export class UploadImagesComponent implements OnInit {
           "order_total": this.totalAmtWithGST,
           "is_paid": false
       }
-      console.log("orderData", orderData)
       this.framesService.checkout(orderData).subscribe((response: any) => {
-        console.log("response", response);
         var paytmData = {
             "order_id": response.data[0].order_id,
             "order_total": response.data[0].order_total,
             "email": userdata.email
         }
         this.framesService.paytmCheckout(paytmData).subscribe((response: any) => {
-          console.log("response from pay", response)
           this.handleSuccess(response.data);
         }, (error: any) => {
-          console.log('error pay', error);
           this.placeOrderParam = false;
         });
       }, (error: any) => {
-        console.log('error', error);
         this.placeOrderParam = false;
       });
   } 
 
   handleSuccess = (res: any) => {
-    console.log('res', res);
     let keyArr = Object.keys(res);
     let valArr = Object.values(res);
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
@@ -227,7 +220,6 @@ export class UploadImagesComponent implements OnInit {
     }
 
     cropUploadImage(url: any) {
-      console.log("cropUploadImage", this.frameSelect);
 
     	$("#demo-basic").empty();
     	$("#demo-basic").removeClass('croppie-container');
@@ -250,7 +242,6 @@ export class UploadImagesComponent implements OnInit {
         
         var data = setInterval(() => {
           var findimage = $('.cr-image').attr('src');
-          console.log('dd', findimage);
           if(findimage){
             clearInterval(data);
             let w = parseInt($w.val(), 10),
@@ -263,7 +254,6 @@ export class UploadImagesComponent implements OnInit {
                     height: 50
                 }
             }).then((resp: any)=>{ 
-              console.log("resp", resp)
               let uploadObj = {
                 filename: this.uploadRes.filesUploaded[0].filename,
                 url: resp,
@@ -298,7 +288,6 @@ export class UploadImagesComponent implements OnInit {
             url: url,
         });
 		$('.basic-result').off().on('click', () => {
-			console.log("this.uploadImagesList", this.uploadImagesList)
 			this.cropLoader = true;
 			setTimeout(()=>{  
 	            var w = parseInt($w.val(), 10),
@@ -315,7 +304,6 @@ export class UploadImagesComponent implements OnInit {
 
 	                this.uploadImagesList.forEach((obj: any, indexValue: any) => {
 			    		if(obj.id === indexNumber){
-			    			console.log("indexValue", indexValue)
 							this.uploadImagesList[indexValue].url = resp;
 							$('#cropModal').modal('hide');
 							this.cropLoader = false;

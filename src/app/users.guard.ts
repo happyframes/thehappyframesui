@@ -11,6 +11,7 @@ export class UsersGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (localStorage.getItem('userData')) {
+      let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
       return true;
     } else {
     	this.router.navigate(['/']);

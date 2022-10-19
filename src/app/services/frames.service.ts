@@ -20,6 +20,10 @@ export class FramesService {
     const url = 'https://thehappyframes.com/api/orders/my_orders/';
     return this.apiService.post(url, payload);
   }
+  allorders(payload: any): Observable<any> {
+    const url = 'https://thehappyframes.com/api/orders/all_orders/';
+    return this.apiService.post(url, payload);
+  }
   checkout(payload: any): Observable<any> {
     const url = 'https://thehappyframes.com/api/orders/photos/';
     return this.apiService.post(url, payload);
