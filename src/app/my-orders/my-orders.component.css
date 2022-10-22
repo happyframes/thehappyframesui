@@ -71,3 +71,32 @@ border: 6px solid #ffcc05;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.pagination {
+  display: inline-block;
+  float: right;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  height:40px;
+  cursor: pointer;
+}
+
+.pagination a.disabled {
+    cursor: not-allowed;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
