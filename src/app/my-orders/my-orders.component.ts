@@ -37,7 +37,6 @@ export class MyOrdersComponent implements OnInit {
     }); 
   	let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     this.staff = userdata.is_staff;
-    this.is_staffFc();
     if(userdata.is_staff){
       this.is_staffFc();
     }else{
