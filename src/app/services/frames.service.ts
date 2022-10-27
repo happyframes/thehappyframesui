@@ -32,4 +32,9 @@ export class FramesService {
     const url = 'https://thehappyframes.com/api/paytm_payment/pay/';
     return this.apiService.post(url, payload);
   }
+  handlePayment(payload: any): Observable<any> {
+    const url = 'https://thehappyframes.com/api/paytm_payment/handle_payment/';
+    return this.apiService.post(url, payload);
+  }
+  
 }
