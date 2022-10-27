@@ -13,10 +13,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let myOrder of myOrders">
+            <tr *ngFor="let myOrder of myOrders;let i = index;">
                 <td>{{myOrder.order_id}}</td>
                 <td>{{myOrder.full_name}}</td>
-                <td>{{myOrder.phone}}</td>
+                <td>{{myOrder.phone_number}}</td>
                 <td>{{myOrder.ordered_date}}</td>
                 <td>INR :{{myOrder.order_total}}</td>
                 <td>
@@ -25,15 +25,21 @@
                     </div>
                 </td>
                 <td>{{myOrder.tile}}</td>
-                <td>{{myOrder.order_status}}</td>                
+                <td>
+                    <select #val (change)="onChange(val.value,i,myOrder.order_id)" class="form-control">
+                        <option *ngFor="let cat of orderStatusItems" [value]="cat.value" [selected]="myOrder.order_status === cat.viewValue">
+                            {{cat.viewValue}}
+                        </option>
+                    </select>
+                </td>                
             </tr>
             <tr *ngIf="loaderData">
-            	<td valign="top" colspan="6">
+            	<td valign="top" colspan="8">
             		<div class="loader"></div>
             	</td>
             </tr>
             <tr class="nodata" *ngIf="noData">
-            	<td valign="top" colspan="6" class="dataTables_empty">No data available in table</td>
+            	<td valign="top" colspan="8" class="dataTables_empty">No data available in table</td>
             </tr>
         </tbody>
     </table>
