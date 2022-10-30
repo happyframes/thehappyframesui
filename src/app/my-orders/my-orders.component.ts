@@ -43,12 +43,12 @@ export class MyOrdersComponent implements OnInit {
       this.is_normalFc();
     }
   }
-  onChange(selectedValue: any, index: any, orderID: any) {
+  onChange(selectedValue: any, index: any, orderID: any, email: any) {
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     let orderStausAPI = {
       "order_id": orderID, 
       "order_status": selectedValue, 
-      "email": userdata.email
+      "email": email
     }
     console.log("orderStausAPI", orderStausAPI);
     this.framesService.handlePayment(orderStausAPI).subscribe((response: any) => {
@@ -75,7 +75,7 @@ export class MyOrdersComponent implements OnInit {
   is_staffFc(){
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     this.framesService.allorders(this.paginationNumber, {"email": userdata.email}).subscribe((response: any) => {
-        if(response.message === "No orders"){
+        if(response.count === 0){
           this.loaderData = false;
         }else{
           this.myOrders = response.data;
