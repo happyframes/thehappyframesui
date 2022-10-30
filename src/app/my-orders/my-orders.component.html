@@ -26,7 +26,7 @@
                 </td>
                 <td>{{myOrder.tile}}</td>
                 <td>
-                    <select #val (change)="onChange(val.value,i,myOrder.order_id)" class="form-control">
+                    <select #val (change)="onChange(val.value,i,myOrder.order_id,myOrder.email)" class="form-control">
                         <option *ngFor="let cat of orderStatusItems" [value]="cat.value" [selected]="myOrder.order_status === cat.viewValue">
                             {{cat.viewValue}}
                         </option>
