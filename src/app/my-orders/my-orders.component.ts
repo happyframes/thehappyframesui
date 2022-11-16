@@ -50,23 +50,18 @@ export class MyOrdersComponent implements OnInit {
       "order_status": selectedValue, 
       "email": email
     }
-    console.log("orderStausAPI", orderStausAPI);
     this.framesService.handlePayment(orderStausAPI).subscribe((response: any) => {
-      console.log("response", response);
       alert(response.data+ ' - '+orderID+ ' Order Id');
     }, (error: any) => {
-      console.log("error", error)
     });
   }
   stepFor(){
-    console.log("this.paginationNumber", this.paginationNumber++);
     this.is_staffFc();
     this.loaderData = true;;
     this.noData = true;
     this.myOrders = [];
   }
   stepBack(){
-    console.log("this.paginationNumber", this.paginationNumber--);
     this.is_staffFc();
     this.loaderData = true;;
     this.noData = true;
@@ -81,10 +76,9 @@ export class MyOrdersComponent implements OnInit {
           this.myOrders = response.data;
           this.count = response.count;
           this.num_pages = response.num_pages;
-          this.myOrders.forEach((obj: any) => {
+          this.myOrders.forEach((obj: any, index: number) => {
             this.orderStatusForm.controls['orderStatus'].setValue(obj.order_status, {onlySelf: true});
           });
-          
         }
         if(this.myOrders.length != 0){
           this.noData = false;
