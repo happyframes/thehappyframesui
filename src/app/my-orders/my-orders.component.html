@@ -1,10 +1,12 @@
-<div style="padding: 50px 80px;" class="table-responsive order-table">
+<div style="padding: 50px 20px;" class="table-responsive order-table">
 	<table id="myorders" class="table table-striped table-bordered" *ngIf="staff">
         <thead>
             <tr>
                 <th>Order ID</th>
                 <th>Name</th>
                 <th>Phone No</th>
+                <th>Email</th>
+                <th>Address</th>
                 <th>Date</th>
                 <th>Amount</th>
                 <th>Photos</th>
@@ -17,6 +19,8 @@
                 <td>{{myOrder.order_id}}</td>
                 <td>{{myOrder.full_name}}</td>
                 <td>{{myOrder.phone_number}}</td>
+                <td>{{myOrder.email}}</td>
+                <td><span>{{ myOrder.address.address1 }}, {{ myOrder.address.city }}, {{ myOrder.address.pin }}, {{ myOrder.address.state }}</span></td>
                 <td>{{myOrder.ordered_date}}</td>
                 <td>INR :{{myOrder.order_total}}</td>
                 <td>
