@@ -22,7 +22,6 @@ const routes: Routes = [
 	{ path: 'shipping-policy', component: ShippingPolicyComponent },
 	{ path: 'payment-status', component: PaymentStatusComponent },
 ];
-// canActivate: [ UsersGuard ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

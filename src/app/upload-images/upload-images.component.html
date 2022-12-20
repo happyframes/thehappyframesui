@@ -60,7 +60,7 @@
 						<img src="assets/img/White.svg"/>
 					</div>
 					<div class="frm-name pull-left">
-						<h4>White</h4>
+						<h4>Ivory</h4>
 					</div>
 					<div style="clear: both"></div>
 				</div>
@@ -73,7 +73,7 @@
 					</div>
 					<div style="clear: both"></div>
 				</div>
-				<div class="frames-list" (click)="frameList('Rose-Gold')" [ngClass]="{'frames-list-active': frameSelect === 'Rose-Gold'}">
+				<!-- <div class="frames-list" (click)="frameList('Rose-Gold')" [ngClass]="{'frames-list-active': frameSelect === 'Rose-Gold'}">
 					<div class="frm-img pull-left">
 						<img src="assets/img/Rose-Gold.svg"/>
 					</div>
@@ -81,13 +81,13 @@
 						<h4>Rose Gold</h4>
 					</div>
 					<div style="clear: both"></div>
-				</div>
+				</div> -->
 				<div class="frames-list" (click)="frameList('White-Bold')" [ngClass]="{'frames-list-active': frameSelect === 'White-Bold'}">
 					<div class="frm-img pull-left">
 						<img src="assets/img/White-Bold.svg"/>
 					</div>
 					<div class="frm-name pull-left">
-						<h4>White Bold</h4>
+						<h4>Ivory Bold</h4>
 					</div>
 					<div style="clear: both"></div>
 				</div>
@@ -100,7 +100,7 @@
 					</div>
 					<div style="clear: both"></div>
 				</div>
-				<div class="frames-list" (click)="frameList('Rose-Gold-Bold')" [ngClass]="{'frames-list-active': frameSelect === 'Rose-Gold-Bold'}">
+				<!-- <div class="frames-list" (click)="frameList('Rose-Gold-Bold')" [ngClass]="{'frames-list-active': frameSelect === 'Rose-Gold-Bold'}">
 					<div class="frm-img pull-left">
 						<img src="assets/img/Rose-Gold-Bold.svg"/>
 					</div>
@@ -108,7 +108,7 @@
 						<h4>Rose Gold Bold</h4>
 					</div>
 					<div style="clear: both"></div>
-				</div>
+				</div> -->
 				<input type="button" value="Checkout" class="btn btn-block btn-primary happy-frame-checkout btn-custom" (click)="checkOut()">
 			</div>
 		</div>
@@ -149,7 +149,7 @@
 				<img src="assets/img/home-yellow.png">
 			</div>
 			<div class="pull-left head-add-pay">
-				{{ addressForm.value.fullName }}, {{ addressForm.value.address1 }}, {{addressForm.value.city }}
+				{{ addressForm.value.fullName }},<br> {{ userEmail }},<br> {{ addressForm.value.phoneNumber }},<br> {{ addressForm.value.address1 }}, {{ addressForm.value.address2 }}, {{addressForm.value.city }}, {{ addressForm.value.state }}, {{ addressForm.value.zipcode }}.
 			</div>
 			<div style="clear: both;"></div>
 		</div>
@@ -159,7 +159,7 @@
 				<p class="tile-count">{{ this.uploadImagesList.length }} frames</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
-				<p class="tile-count pull-right">INR {{ totalAmt }}</p>
+				<p class="tile-count pull-right">₹ {{ totalAmt }}</p>
 			</div>
 		</div>
 		<!-- <div class="row">
@@ -183,7 +183,7 @@
 				<p class="tile-count font-bold">Total</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-6">
-				<p class="tile-count pull-right font-bold">INR {{ totalAmtWithGST }}</p>
+				<p class="tile-count pull-right font-bold">₹ {{ totalAmtWithGST }}</p>
 			</div>
 		</div>
 		<div class="row">
@@ -229,7 +229,7 @@
 			      		</div>
 			      		<div class="col-lg-6">
 			      			<div class="form-group form-mar">
-							    <label for="address2">Phone Number</label>
+							    <label for="phoneNumber">Phone Number</label>
 							    <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber" maxLength="10">
 							    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
 							        <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
@@ -252,7 +252,7 @@
 			      		<div class="col-lg-12">
 			      			<div class="form-group form-mar">
 							    <label for="address2">Address 2</label>
-							    <input type="text" class="form-control" placeholder="Apt/Suite/Unit (Optional)">
+							    <input type="text" class="form-control" placeholder="Apt/Suite/Unit (Optional)" formControlName="address2">
 							    <!-- <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
 							        <div *ngIf="f.address2.errors.required">Address 2 is required</div>
 						      	</div> -->

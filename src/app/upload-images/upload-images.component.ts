@@ -122,22 +122,25 @@ export class UploadImagesComponent implements OnInit {
   storeImage: any = [];
   openLoader: boolean = false;
   cropLoader: boolean = false;
+  userEmail: string = '';
 
 	constructor(private formBuilder: FormBuilder, private readonly framesService: FramesService,) { }
 
 	ngOnInit() {
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
-      let addressData = userdata.address && JSON.parse(userdata.address);
+    this.userEmail = userdata.email;
+    let addressData = userdata.address && JSON.parse(userdata.address);
 		this.addressForm = this.formBuilder.group({
 			email: [{value: userdata.email, disabled: true}, [Validators.required, Validators.email]],
-            fullName: [userdata.full_name, Validators.required],
-            address1: [addressData && addressData.address1 && addressData.address1, Validators.required],
-            city: [addressData && addressData.city && addressData.city, Validators.required],
-            state: [addressData && addressData.state && addressData.state, Validators.required],
-            zipcode: [addressData && addressData.pin && addressData.pin, Validators.required],
-            country: ['India', Validators.required],
-            phoneNumber: [userdata.mobile, Validators.required],
-        });	
+      fullName: [userdata.full_name, Validators.required],
+      address1: [addressData && addressData.address1 && addressData.address1, Validators.required],
+      address2: [addressData && addressData.address2 && addressData.address2],
+      city: [addressData && addressData.city && addressData.city, Validators.required],
+      state: [addressData && addressData.state && addressData.state, Validators.required],
+      zipcode: [addressData && addressData.pin && addressData.pin, Validators.required],
+      country: ['India', Validators.required],
+      phoneNumber: [userdata.mobile, Validators.required],
+    });	
 	}
 
   checkOutService() {
