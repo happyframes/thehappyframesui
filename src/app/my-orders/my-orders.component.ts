@@ -56,12 +56,14 @@ export class MyOrdersComponent implements OnInit {
     });
   }
   stepFor(){
+    this.paginationNumber++;
     this.is_staffFc();
     this.loaderData = true;;
     this.noData = true;
     this.myOrders = [];
   }
   stepBack(){
+    this.paginationNumber--;
     this.is_staffFc();
     this.loaderData = true;;
     this.noData = true;
