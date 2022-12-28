@@ -230,8 +230,8 @@ export class UploadImagesComponent implements OnInit {
             $h = $('.basic-height'),
             basic = $('#demo-basic').croppie({
             viewport: {
-                width: 500,
-                height: 500
+                width: 1080,
+                height: 1080
             },
             boundary: {
                 width: 300,
@@ -295,7 +295,7 @@ export class UploadImagesComponent implements OnInit {
 			setTimeout(()=>{  
 	            var w = parseInt($w.val(), 10),
 	                h = parseInt($h.val(), 10),
-	                size = { width: 500, height: 500 };
+	                size = { width: 1080, height: 1080 };
 	            basic.croppie('result', {
 	                type: 'canvas',
 	                size: size,
