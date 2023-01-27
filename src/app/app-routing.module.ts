@@ -14,7 +14,7 @@ import { UsersGuard } from './users.guard';
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'upload-images', component: UploadImagesComponent, canActivate: [ UsersGuard ] },
+	{ path: 'upload-images', component: UploadImagesComponent, canActivate: [ UsersGuard ]},
 	{ path: 'my-orders', component: MyOrdersComponent, canActivate: [ UsersGuard ] },
 	{ path: 'faq', component: FaqComponent },
 	{ path: 'privacy-policy', component: PrivacyPolicyComponent },

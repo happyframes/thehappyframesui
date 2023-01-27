@@ -2,7 +2,7 @@
 	<div class="row upload-main" id="paymentFrm">
 		<div class="col-lg-9">
 			<div class="upload-image-inner">
-				<h2>Pick some photos to get started</h2>
+				<h2>Pick some Frames to get started</h2>
 				<div id="demo-basic"></div>
 				<div class="upload-box-image">
 				  	<div class="upload-box-image-inner" *ngFor="let uploadImage of uploadImagesList" style="box-shadow: none;" (mouseenter)="mouseEnter('hoverImg'+uploadImage.id, uploadImage.id)" (mouseleave)="mouseLeave('hoverImg'+uploadImage.id, uploadImage.id)">
@@ -109,6 +109,34 @@
 					</div>
 					<div style="clear: both"></div>
 				</div> -->
+
+				<ng-container *ngIf="this.uploadImagesList.length != 0">
+					<hr/>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<p class="tile-count">{{ this.uploadImagesList.length }} frames</p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<p class="tile-count pull-right">₹ {{ totalAmt }}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<p class="tile-count">Shipping</p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<p class="tile-count pull-right">Free</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<p class="tile-count font-bold">Total</p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<p class="tile-count pull-right font-bold">₹ {{ totalAmtWithGST }}</p>
+						</div>
+					</div>
+				</ng-container>
 				<input type="button" value="Checkout" class="btn btn-block btn-primary happy-frame-checkout btn-custom" (click)="checkOut()">
 			</div>
 		</div>
@@ -118,7 +146,7 @@
 	<div class="botoom-modal-inner">
 		<div class="modal-content-box">
 			<h4 class="low-image text-center">Low Image Quality</h4>
-			<img class="low-img-show" src="{{selectedImg}}">
+			<img class="low-img-show" src="{{selectedImg}}" id="lowImg">
 			<p class="para-low">This photo is actually pretty small. It will probably make a blurry frame!</p>
 		</div>
 		<div class="modal-footer-box">
