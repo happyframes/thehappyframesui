@@ -1,10 +1,10 @@
 
 @font-face {
-   font-family: COMIC;
-   src: url(./assets/fonts/COMIC.woff);
+   font-family: futuramediumbt;
+   src: url(./assets/fonts/futuramediumbt.woff);
 }
 body{
-    font-family: COMIC;
+    font-family: futuramediumbt;
 }
 /* You can add global styles to this file, and also import other style files */
 .invalid-feedback{

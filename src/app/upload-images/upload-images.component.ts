@@ -264,7 +264,9 @@ export class UploadImagesComponent implements OnInit {
                 id: ++this.indexValue
               }
               this.uploadImagesList.push(uploadObj);
+              console.log('this.uploadImagesList', this.uploadImagesList)
               this.openLoader = false;
+              this.amountCheckFc();
               setTimeout(() => {
                 this.frameList(this.frameSelect);
               }, 100);
@@ -331,6 +333,7 @@ export class UploadImagesComponent implements OnInit {
     }
 	onUploadSuccess(res: object) {
 		this.uploadRes = res;
+    console.log("this.uploadRes", this.uploadRes)
 		let uploadObj = {
 			filename: this.uploadRes.filesUploaded[0].filename,
 			url: this.uploadRes.filesUploaded[0].url,
@@ -339,17 +342,34 @@ export class UploadImagesComponent implements OnInit {
 		}
 		this.uploadImagesListOrginal.push(uploadObj);
 		const fsize = this.uploadRes.filesUploaded[0].size;
-        const file = Math.round((fsize / 1024));
-        if(file < 300){
-        	this.windowScroolUp();
-        	this.openLowImage = true;
-        	this.selectedImg = this.uploadRes.filesUploaded[0].url;
-        }else{
-        	this.openLowImage = false;
-        }
-        this.cropUploadImage(this.uploadRes.filesUploaded[0].url);
-        this.openLoader = true;
+    const file = Math.round((fsize / 1024));
+
+    this.getMeta(this.uploadRes.filesUploaded[0].url, (err: any, img: any) => {
+      console.log(img.naturalWidth, img.naturalHeight);
+      if(img.naturalWidth < 1080 || img.naturalHeight < 1080){
+        this.windowScroolUp();
+        this.openLowImage = true;
+        this.selectedImg = this.uploadRes.filesUploaded[0].url;
+      }else{
+        this.openLowImage = false;
+      }
+    });
+    // if(file < 300){
+    // 	this.windowScroolUp();
+    // 	this.openLowImage = true;
+    // 	this.selectedImg = this.uploadRes.filesUploaded[0].url;
+    // }else{
+    // 	this.openLowImage = false;
+    // }
+    this.cropUploadImage(this.uploadRes.filesUploaded[0].url);
+    this.openLoader = true;
 	}
+  getMeta = (url: any, cb: any) => {
+    const img = new Image();
+    img.onload = () => cb(null, img);
+    img.onerror = (err) => cb(err);
+    img.src = url;
+  };
 	keepAnyway(){
 		this.openLowImage = false;
 	}
@@ -380,6 +400,7 @@ export class UploadImagesComponent implements OnInit {
 		     return o.id === indexNumber;
 		});
 		if (index !== -1) this.uploadImagesList.splice(index, 1);
+    this.amountCheckFc();
 	}
 	mouseEnter(id : string, id2: string){
       $('.'+id).addClass('block');
@@ -404,12 +425,7 @@ export class UploadImagesComponent implements OnInit {
         this.bulkOrder = true;
       }else{
   			this.openRightModal = true;
-        this.amountCheck.forEach((obj: any) => {
-            if(obj.frame === this.uploadImagesList.length){
-              this.totalAmt = obj.amount;
-              this.totalAmtWithGST = obj.amount;
-            }
-        });
+        this.amountCheckFc();
   			// let amountAdd = this.uploadImagesList.length - 3;
   			// if(amountAdd != 0){
   			// 	let totalAmtMultiPly = amountAdd*300;
@@ -426,6 +442,14 @@ export class UploadImagesComponent implements OnInit {
 	        this.minTile = false;
           this.bulkOrder = false;
 	    }, 3000);
+   }
+   amountCheckFc(){
+    this.amountCheck.forEach((obj: any) => {
+          if(obj.frame === this.uploadImagesList.length){
+            this.totalAmt = obj.amount;
+            this.totalAmtWithGST = obj.amount;
+          }
+      });
    }
    placeOrder(){
    		if(this.addressForm.invalid){
