@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { FramesService } from '../services/frames.service';
 declare var $: any;
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -98,6 +99,16 @@ export class UploadImagesComponent implements OnInit {
       'amount': 6993
     },
   ]
+  // login
+  emailCode: boolean = false;
+  loginForm: FormGroup;
+  submittedL : boolean = false;
+  otpForm: FormGroup;
+  submittedOTP : boolean = false;
+  loadingLogin: boolean = false;
+  invalidOTP: boolean = false;
+  logged: boolean = false;
+  // login
 	apikey: string = 'AIsKGxPnQDqVfWCKTbpFAz';
 	uploadImagesList: any = [];
 	uploadImagesListOrginal: any = [];
@@ -124,14 +135,24 @@ export class UploadImagesComponent implements OnInit {
   cropLoader: boolean = false;
   userEmail: string = '';
 
-	constructor(private formBuilder: FormBuilder, private readonly framesService: FramesService,) { }
+	constructor(private formBuilder: FormBuilder, private readonly framesService: FramesService,
+    private readonly router: Router) { }
 
 	ngOnInit() {
+    this.addressFormFill();
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+    });
+    this.otpForm = this.formBuilder.group({
+      otp: ['', Validators.required],
+    });
+	}
+  addressFormFill(){
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     this.userEmail = userdata.email;
     let addressData = userdata.address && JSON.parse(userdata.address);
-		this.addressForm = this.formBuilder.group({
-			email: [{value: userdata.email, disabled: true}, [Validators.required, Validators.email]],
+    this.addressForm = this.formBuilder.group({
+      email: [{value: userdata.email, disabled: true}, [Validators.required, Validators.email]],
       fullName: [userdata.full_name, Validators.required],
       address1: [addressData && addressData.address1 && addressData.address1, Validators.required],
       address2: [addressData && addressData.address2 && addressData.address2],
@@ -140,9 +161,58 @@ export class UploadImagesComponent implements OnInit {
       zipcode: [addressData && addressData.pin && addressData.pin, Validators.required],
       country: ['India', Validators.required],
       phoneNumber: [userdata.mobile, Validators.required],
-    });	
-	}
-
+    }); 
+  }
+  get fl() { return this.loginForm.controls; }
+  get fo() { return this.otpForm.controls; }
+  submitHFLogin() {
+    this.submittedL = true;
+        if (this.loginForm.invalid) {
+            return;
+        }
+        this.loadingLogin = true;
+        this.loginFunc();
+  }
+  backLogin(){
+    this.emailCode = false;
+  }
+  loginFunc() {
+      this.framesService.login({"email": this.loginForm.value.email}).subscribe((response: any) => {
+        this.emailCode = true;
+        this.loadingLogin = false;
+      }, (error: any) => {
+        this.loadingLogin = false;
+      });
+  }
+  submitOTP(){
+    this.invalidOTP = false;
+    this.submittedOTP = true;
+        if (this.otpForm.invalid) {
+            return;
+        }
+        this.otpFunc();
+  }
+  otpFunc() {
+      this.framesService.otp({"email": this.loginForm.value.email, "otp": this.otpForm.value.otp}).subscribe((response: any) => {
+          localStorage.setItem('userData', JSON.stringify(response.data[0]));
+          if(response.data[0].is_staff){
+            this.router.navigate(['/my-orders']);
+          }else{
+            this.router.navigate(['/upload-images']);
+            $('#loginModal').modal('hide');
+            this.logged = true;
+            setTimeout(() => {
+              this.logged = false;
+            }, 3000);
+          }
+          this.invalidOTP = false;
+      }, (error: any) => {
+        this.invalidOTP = true;
+        setTimeout(() => {
+          this.invalidOTP = false;
+        }, 3000);
+      });
+  }
   checkOutService() {
     let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
     let resultImgArray = this.uploadImagesList.map((a: any) => a.url);
@@ -424,19 +494,15 @@ export class UploadImagesComponent implements OnInit {
    		}else if(this.uploadImagesList.length > 21){
         this.bulkOrder = true;
       }else{
-  			this.openRightModal = true;
-        this.amountCheckFc();
-  			// let amountAdd = this.uploadImagesList.length - 3;
-  			// if(amountAdd != 0){
-  			// 	let totalAmtMultiPly = amountAdd*300;
-  			// 	this.totalAmt = this.totalAmt + totalAmtMultiPly;
-     //      // let gstValue = this.percentage(this.totalAmt, 18);
-     //      this.totalAmtWithGST = this.totalAmt;
-  			// }else{
-     //      this.totalAmt = 999;
-     //      // let gstValue = this.percentage(this.totalAmt, 18);
-     //      this.totalAmtWithGST = this.totalAmt;
-     //    }
+        let userdata = JSON.parse(localStorage.getItem('userData') || '{}');
+        console.log('userdata', userdata.email)
+        if(!userdata.email){
+          $('#loginModal').modal('show');
+        }else{
+          this.addressFormFill();
+          this.openRightModal = true;
+          this.amountCheckFc();
+        }
    		}
    		setTimeout(() => {
 	        this.minTile = false;
