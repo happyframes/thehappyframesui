@@ -1,8 +1,7 @@
 
 .main-home-content{
-	background-color: #000;
-	border-bottom: 2px solid #333;
-    border-top: 1px solid #333;
+	background-color: #fff;
+	border-bottom: 2px solid #fff;
 }
 .home-con-inner, .home-box-inner, 
 .home-box-magic, .one-stop-cont, 
@@ -46,12 +45,12 @@
 	height: 100px;
 }
 .home-box h4{
-	color: #fff;
+	color: #000;
     margin: 17px 0px 3px 0px;
     font-size: 20px;
 }
 .home-box p{
-	color: #fff;
+	color: #000;
     font-size: 14px;
 }
 .home-box-magic .row{
@@ -63,8 +62,8 @@
 	height: 400px;
 }
 .magic-cont{
-	width: 360px;
-	margin-top: 100px;
+	width: 500px;
+	margin-top: 80px;
 }
 .magic-cont h1{
     color: #000;
@@ -76,12 +75,12 @@
     font-weight: bold;
     font-size: 14px;
 }
-.one-stop-cont .row{
+/*.one-stop-cont .row{
 	margin-top: 50px;
-}
+}*/
 .one-stop-heading{
     margin: 0px;
-    color: #fff;
+    color: #000;
     font-size: 45px;
     letter-spacing: 2px;
 }
@@ -135,13 +134,16 @@
     .home-con-inner, .home-box-inner, 
     .home-box-magic, .one-stop-cont, 
     .main-banner{
-        padding: 20px 10px;
+        padding: 20px 10px !important;
     }
     .home-box-inner .col-lg-4{
         margin: 20px 0px;
     }
     .style-input{
         bottom: 0;
+    }
+    .carousel-inner-main{
+        height: auto !important;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 1366px) {
@@ -151,4 +153,27 @@
     .main-banner img{
         height: 350px;
     }
+    .carousel-inner-main{
+        height: auto !important;
+    }
+}
+.carousel-inner-main{
+    height: 500px;
+}
+.carousel-inner-multiple{
+    height: 300px;
+    margin-top: 50px;
+}
+.mu-img img{
+    width: 100%;
+    height: 300px;
+}
+.text-p{
+    position: absolute;
+    bottom: -10px;
+    width: 94%;
+    background: #0006;
+    color: #fff;
+    padding: 0px 20px;
+    text-align: center;
 }

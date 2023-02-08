@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  	constructor(private readonly router: Router) { }
-
+	constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
   }

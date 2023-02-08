@@ -1,17 +1,52 @@
 <div class="main-home-content">
-	<div class="row home-con-inner">
-		<div class="col-lg-6">
+	<div class="row home-con-inner" style="padding: 0px;">
+		<!-- <div class="col-lg-6">
 			<img src="assets/img/home-left-banner.png" class="banner-img">
 		</div>
 		<div class="col-lg-6">
 			<div class="banner-headings">
 				<h1>Turn your photos into stunning wall art</h1>
 				<p>Design beautiful walls filled with memories using your favorite photos</p>
-					<input type="button" value="Style Your Photos" class="btn btn-block btn-primary btn-custom" [routerLink]="['/upload-images']">
+					<input type="button" value="Frame Your Photos" class="btn btn-block btn-primary btn-custom" [routerLink]="['/upload-images']">
 			</div>
+		</div> -->
+		<div class="col-lg-12" style="padding: 0px;">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			    <!-- Indicators -->
+			    <ol class="carousel-indicators">
+			      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			      <li data-target="#myCarousel" data-slide-to="1"></li>
+			      <li data-target="#myCarousel" data-slide-to="2"></li>
+			    </ol>
+
+			    <!-- Wrapper for slides -->
+			    <div class="carousel-inner carousel-inner-main">
+			      <div class="item active">
+			        <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="Los Angeles" style="width:100%;">
+			      </div>
+
+			      <div class="item">
+			        <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago" style="width:100%;">
+			      </div>
+			    
+			      <div class="item">
+			        <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="New york" style="width:100%;">
+			      </div>
+			    </div>
+
+			    <!-- Left and right controls -->
+			    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			      <span class="glyphicon glyphicon-chevron-left"></span>
+			      <span class="sr-only">Previous</span>
+			    </a>
+			    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+			      <span class="glyphicon glyphicon-chevron-right"></span>
+			      <span class="sr-only">Next</span>
+			    </a>
+			  </div>
 		</div>
 	</div>
-	<div class="row pad-mar-0 home-box-inner">
+	<div class="row pad-mar-0 home-box-inner" style="padding-top: 100px;">
 		<div class="col-lg-4">
 			<div class="home-box">
 				<img src="assets/img/home-icon-1.png" class="banner-img-inner">
@@ -41,8 +76,9 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="magic-cont">
-					<h1>The magic frame that sticks to any surface</h1>
-					<p>Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+					<h1>Design your walls with beautiful restickable wallframes.</h1>
+					<p>Get your photos in stylish frames that stick directly to your wall <br> and leave no damage behind!</p>
+					<input type="button" value="Frame Your Photos" class="btn btn-block btn-primary btn-custom" [routerLink]="['/upload-images']" style="background: #000;color: #fff;width: 80%;height: 40px;">
 				</div>
 			</div>
 		</div>
@@ -50,7 +86,7 @@
 	<div class="one-stop-cont">
 		<h2 class="text-center one-stop-heading">One stop solution for your needs!</h2>
 		<div class="row pad-mar-0">
-			<div class="col-lg-4">
+			<!-- <div class="col-lg-4">
 				<div class="one-stop-box">
 					<img src="assets/img/grid-banner-2.png">
 					<p class="text-center">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
@@ -67,13 +103,87 @@
 					<img src="assets/img/grid-banner-2.png">
 					<p class="text-center">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
 				</div>
+			</div> -->
+			<div class="col-lg-12">
+				<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+			    <!-- Indicators -->
+			    <ol class="carousel-indicators">
+			      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+			      <li data-target="#myCarousel2" data-slide-to="1"></li>
+			      <li data-target="#myCarousel2" data-slide-to="2"></li>
+			    </ol>
+
+			    <!-- Wrapper for slides -->
+			    <div class="carousel-inner carousel-inner-multiple">
+			      <div class="item active">
+			        <div class="row">
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://m.media-amazon.com/images/I/51OEAc8QEVL._AC_.jpg">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://i.ebayimg.com/images/g/z8MAAOSwjr9hLqKP/s-l500.jpg">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://cdn.pixabay.com/photo/2020/02/06/01/52/frame-4822807__480.png">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        </div>
+			      </div>
+
+			      <div class="item">
+			        <div class="row">
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://m.media-amazon.com/images/I/51OEAc8QEVL._AC_.jpg">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://i.ebayimg.com/images/g/z8MAAOSwjr9hLqKP/s-l500.jpg">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://cdn.pixabay.com/photo/2020/02/06/01/52/frame-4822807__480.png">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        </div>
+			      </div>
+			    
+			      <div class="item">
+			        <div class="row">
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://m.media-amazon.com/images/I/51OEAc8QEVL._AC_.jpg">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://i.ebayimg.com/images/g/z8MAAOSwjr9hLqKP/s-l500.jpg">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        	<div class="col-lg-4 mu-img">
+			        		<img src="https://cdn.pixabay.com/photo/2020/02/06/01/52/frame-4822807__480.png">
+			        		<p class="text-p">Get your photos in stylish frames that stick directly to your wall and leave no damage behind!</p>
+			        	</div>
+			        </div>
+			      </div>
+			    </div>
+
+			    <!-- Left and right controls -->
+			    <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+			      <span class="glyphicon glyphicon-chevron-left"></span>
+			      <span class="sr-only">Previous</span>
+			    </a>
+			    <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+			      <span class="glyphicon glyphicon-chevron-right"></span>
+			      <span class="sr-only">Next</span>
+			    </a>
+			  </div>
 			</div>
 		</div>
 	</div>
 	<div class="row pad-mar-0 main-banner">
 		<div class="stylish-banner">
 			<img src="assets/img/banner.png">
-			<input type="button" value="Style Your Photos" class="btn btn-block btn-primary btn-custom style-input" [routerLink]="['/upload-images']">
+			<input type="button" value="Frame Your Photos" class="btn btn-block btn-primary btn-custom style-input" [routerLink]="['/upload-images']">
 		</div>
 	</div>
 	<!-- <div class="main-bottom">

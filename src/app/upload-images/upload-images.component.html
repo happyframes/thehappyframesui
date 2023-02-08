@@ -357,6 +357,61 @@
 	  	</div>
 	</div>
 </div>
+<div class="modal fade" id="loginModal" role="dialog">
+	<div class="modal-dialog">
+	  	<div class="modal-content">
+		    <div class="modal-header">
+		      <button type="button" class="close pull-right" data-dismiss="modal">&times;</button>
+		    </div>
+		    <div class="modal-body">
+		   		<div class="form-block mx-auto" *ngIf="!emailCode" style="width: 50%;margin: auto;">
+					<div class="text-center mb-5 login-happy-frames">
+						<h3>Login to</h3>
+					</div>
+					<div class="text-center mb-5 login-happy-frames">
+						<h3><strong>The Happy Frames</strong></h3>
+					</div>
+					<form [formGroup]="loginForm" (ngSubmit)="submitHFLogin()">
+						<div class="form-group">
+							<input type="email" class="form-control email-field" placeholder="Enter your email" id="email" formControlName="email">
+							<div *ngIf="submitted && fl.email.errors" class="invalid-feedback">
+						        <div *ngIf="fl.email.errors.required">Email is required</div>
+						        <div *ngIf="fl.email.errors.email">Email is invalid</div>
+					      	</div>
+						</div>
+						<input type="submit" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom first" *ngIf="!loadingLogin">
+						<input type="submit" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom first" disabled *ngIf="loadingLogin">
+					</form>
+				</div>
+				<div class="form-block mx-auto" *ngIf='emailCode' style="width: 50%;margin: auto;">
+					<div class="back-login" (click)="backLogin()">
+						<img src="assets/img/back-yellow.png">
+					</div>
+					<div class="text-center mb-5 login-happy-frames">
+						<h3>Welcome</h3>
+					</div>
+					<div class="social-login-btn text-center">
+						<p><b>An email with the code has been sent to</b></p>
+						<p><b>{{ loginForm.value.email }}</b></p>
+					</div>
+					<div class="alert alert-danger" *ngIf="invalidOTP">
+					    <strong>Invalid OTP!</strong>
+					</div>
+					<form [formGroup]="otpForm" (ngSubmit)="submitOTP()" autocomplete="off">
+						<div class="form-group">
+							<input type="number" class="form-control email-field" placeholder="your code" id="urcode" formControlName="otp">
+							<div *ngIf="submittedOTP && fo.otp.errors" class="invalid-feedback">
+						        <div *ngIf="fo.otp.errors.required">your OTP is required</div>
+					      	</div>
+						</div>
+						<input type="submit" value="CONTINUE" class="btn btn-block btn-primary happy-frame-login-btn btn-custom first">
+						<!-- [routerLink]="['/upload-images']" -->
+					</form>
+				</div>
+		    </div>
+	  	</div>
+	</div>
+</div>
 <div class="alert alert-info alert-min" *ngIf="minTile">
     <strong>Minimum 1 frame should be uploaded!</strong>
 </div>
@@ -365,4 +420,7 @@
 </div>
 <div class="alert alert-info alert-min" *ngIf="addAdress">
     <strong>Please add address!</strong>
+</div>
+<div class="alert alert-info alert-min" *ngIf="logged">
+    <strong>Logged in successfully!</strong>
 </div>
