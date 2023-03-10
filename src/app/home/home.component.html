@@ -92,9 +92,18 @@
 	<div class="home-box-magic">
 		<div class="row pad-mar-0">
 			<div class="col-lg-6" >
-				<video class="video-banner" autoplay loop>
-					<source src="assets/img/demo-video.mp4" type="video/mp4" >
-				  </video>
+				  <video class="video-banner"
+					autoplay
+					loop
+					(canplay)="video.play()"
+					(loadedmetadata)="video.muted = true"
+					#video>
+					<source
+					src="assets/img/demo-video.mp4"
+					type="video/mp4"
+					/>
+				</video>
+
 			</div>
 			<div class="col-lg-6">
 				<div class="magic-cont">
