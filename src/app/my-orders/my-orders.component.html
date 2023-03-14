@@ -4,8 +4,8 @@
             <tr>
                 <th>Order ID</th>
                 <th>Name</th>
-                <th>Phone No</th>
-                <th>Email</th>
+                <!-- <th>Phone No</th>
+                <th>Email</th> -->
                 <th>Address</th>
                 <th>Date</th>
                 <th>Amount</th>
@@ -18,9 +18,9 @@
             <tr *ngFor="let myOrder of myOrders;let i = index;">
                 <td>{{myOrder.order_id}}</td>
                 <td>{{myOrder.full_name}}</td>
-                <td>{{myOrder.phone_number}}</td>
-                <td>{{myOrder.email}}</td>
-                <td><span>{{ myOrder.address.address1 }}, {{ myOrder.address.city }}, {{ myOrder.address.pin }}, {{ myOrder.address.state }}</span></td>
+                <!-- <td>{{myOrder.phone_number}}</td>
+                <td>{{myOrder.email}}</td> -->
+                <td><span>{{ myOrder.address.address1 }}<br> {{ myOrder.address.city }},<br>{{ myOrder.address.pin }}<br> {{ myOrder.address.state }}<br>{{myOrder.phone_number}}<br>{{myOrder.email}}</span></td>
                 <td>{{myOrder.ordered_date}}</td>
                 <td>INR :{{myOrder.order_total}}</td>
                 <td>
@@ -38,12 +38,12 @@
                 </td>                
             </tr>
             <tr *ngIf="loaderData">
-            	<td valign="top" colspan="10">
+            	<td valign="top" colspan="8">
             		<div class="loader"></div>
             	</td>
             </tr>
             <tr class="nodata" *ngIf="noData">
-            	<td valign="top" colspan="10" class="dataTables_empty">No data available in table</td>
+            	<td valign="top" colspan="8" class="dataTables_empty">No data available in table</td>
             </tr>
         </tbody>
     </table>

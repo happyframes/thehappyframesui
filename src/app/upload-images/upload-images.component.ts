@@ -300,8 +300,8 @@ export class UploadImagesComponent implements OnInit {
             $h = $('.basic-height'),
             basic = $('#demo-basic').croppie({
             viewport: {
-                width: 1080,
-                height: 1080
+                width: 500,
+                height: 500
             },
             boundary: {
                 width: 300,
@@ -367,7 +367,7 @@ export class UploadImagesComponent implements OnInit {
 			setTimeout(()=>{  
 	            var w = parseInt($w.val(), 10),
 	                h = parseInt($h.val(), 10),
-	                size = { width: 1080, height: 1080 };
+	                size = { width: 500, height: 500 };
 	            basic.croppie('result', {
 	                type: 'canvas',
 	                size: size,
@@ -416,7 +416,7 @@ export class UploadImagesComponent implements OnInit {
 
     this.getMeta(this.uploadRes.filesUploaded[0].url, (err: any, img: any) => {
       console.log(img.naturalWidth, img.naturalHeight);
-      if(img.naturalWidth < 1080 || img.naturalHeight < 1080){
+      if(img.naturalWidth < 500 || img.naturalHeight < 500){
         this.windowScroolUp();
         this.openLowImage = true;
         this.selectedImg = this.uploadRes.filesUploaded[0].url;
